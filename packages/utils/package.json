@@ -1,0 +1,31 @@
+{
+    "name": "@viness/utils",
+    "version": "1.8.0",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "sideEffects": false,
+    "license": "MIT",
+    "files": [
+        "dist/**"
+    ],
+    "scripts": {
+        "build": "tsup src/index.ts --format esm,cjs --dts",
+        "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+        "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+        "test": "vitest",
+        "coverage": "vitest run --coverage"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@viness/config": "workspace:*",
+        "@types/node": "catalog:",
+        "tsup": "catalog:",
+        "typescript": "catalog:",
+        "vitest": "catalog:"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    }
+}

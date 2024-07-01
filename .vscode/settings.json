@@ -1,6 +1,9 @@
 {
   "editor.formatOnSave": true,
   "notebook.formatOnSave.enabled": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "notebook.defaultFormatter": "esbenp.prettier-vscode",
+  "notebook.defaultFormatter": "biomejs.biome",
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit"
+  }
 }

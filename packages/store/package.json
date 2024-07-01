@@ -9,28 +9,27 @@
     "files": [
         "dist/**"
     ],
+    
     "scripts": {
         "build": "tsup src/index.ts --format esm,cjs --dts",
         "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
-        "lint": "eslint \"src/**/*.ts*\"",
         "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
         "test": "vitest",
         "coverage": "vitest run --coverage"
     },
+
     "dependencies": {
-        "immer": "10.1.1",
-        "radash": "12.1.0",
-        "react-tracked": "2.0.0",
-        "zustand": "4.5.2"
+        "immer": "catalog:",
+        "radash": "catalog:",
+        "react-tracked": "catalog:",
+        "zustand": "catalog:"
     },
     "devDependencies": {
-        "@viness/eslint-config": "workspace:*",
-        "@viness/tsconfig": "workspace:*",
-        "@types/node": "^18.15.11",
-        "eslint": "^8.55.0",
-        "tsup": "8.1.0",
-        "typescript": "^5.0.0",
-        "vitest": "1.6.0"
+        "@viness/config": "workspace:*",
+        "@types/node": "catalog:",
+        "tsup": "catalog:",
+        "typescript": "catalog:",
+        "vitest": "catalog:"
     },
     "publishConfig": {
         "access": "public",

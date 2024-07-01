@@ -1,3 +1,64 @@
 packages:
-  - "apps/*"
-  - "packages/*"
+    - 'apps/*'
+    - 'packages/*'
+
+# Define a catalog of version ranges.
+catalog:
+    react: ^19.1.0
+    react-dom: ^19.1.0
+    react-tracked: 2.0.1
+    lucide-react: 0.503.0
+
+    ahooks: 3.8.4
+
+    zustand: 5.0.3
+    immer: 10.1.1
+    dayjs: 1.11.13
+    nanoid: 5.1.5
+    radash: 12.1.0
+    lodash-es: 4.17.21
+
+    dexie: 4.0.11
+    lowdb: 7.0.1
+    overlayscrollbars: 2.11.1
+
+    i18next: 25.0.1
+    i18next-browser-languagedetector: 8.0.5
+    react-i18next: 15.4.1
+
+    '@tanstack/react-router': 1.117.1
+
+    '@dnd-kit/react': 0.1.2
+
+    '@tauri-apps/api': '2.5.0'
+    '@tauri-apps/plugin-fs': '2.2.1'
+    '@tauri-apps/plugin-store': '2.2.0'
+    '@tauri-apps/plugin-shell': '2.2.1'
+    '@tauri-apps/plugin-dialog': '2.2.1'
+    '@tauri-apps/plugin-sql': '2.2.0'
+
+    '@tauri-apps/cli': 2.5.0
+
+    '@abraham/reflection': 0.13.0
+
+    vite: 6.3.2
+    vitest: 3.1.1
+    vitepress: 1.5.0
+    '@vitejs/plugin-react': 4.4.1
+
+    tsup: 8.4.0
+    turbo: 2.5.2
+    shadcn: 2.5.0
+
+    typescript: 5.1.6
+
+    '@biomejs/biome': 1.9.4
+
+    '@changesets/cli': 2.29.2
+
+    '@testing-library/jest-dom': 6.6.3
+    '@testing-library/react': 16.2.0
+
+    '@types/react': ^19.1.2
+    '@types/react-dom': ^19.1.1
+    '@types/node': ^18.15.11

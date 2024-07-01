@@ -12,23 +12,19 @@
     "scripts": {
         "build": "tsup src/index.ts --format esm,cjs --dts",
         "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
-        "lint": "eslint \"src/**/*.ts*\"",
         "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
         "test": "vitest",
         "coverage": "vitest run --coverage"
     },
-    "dependencies": {
-        "swr": "^2.1.5",
-        "radash": "^12.1.0"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "@viness/eslint-config": "workspace:*",
-        "@viness/tsconfig": "workspace:*",
-        "@types/node": "^18.15.11",
-        "eslint": "^8.55.0",
-        "tsup": "8.1.0",
-        "typescript": "^5.0.0",
-        "vitest": "1.6.0"
+        "@viness/config": "workspace:*",
+        "@types/react": "catalog:",
+        "@types/react-dom": "catalog:",
+        "@types/node": "catalog:",
+        "tsup": "catalog:",
+        "typescript": "catalog:",
+        "vitest": "catalog:"
     },
     "publishConfig": {
         "access": "public",

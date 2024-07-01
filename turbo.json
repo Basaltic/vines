@@ -1,25 +1,30 @@
 {
-    "$schema": "https://turbo.build/schema.json",
-    "tasks": {
-        "build": {
-            "outputs": ["dist/**", "storybook-static/**"],
-            "dependsOn": ["^build"]
-        },
-        "test": {
-            "outputs": ["coverage/**"],
-            "dependsOn": [],
-            "cache": false
-        },
-        "lint": {},
-        "clean": {
-            "cache": false
-        },
-        "dev": {
-            "cache": true,
-            "persistent": false
-        },
-        "docs:dev": {},
-        "docs:build": {},
-        "docs:preview": {}
-    }
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**", "storybook-static/**"],
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": [],
+      "cache": false
+    },
+    "lint": {},
+    "clean": {
+      "cache": false
+    },
+    "//#format-and-lint": {},
+    "//#format-and-lint:fix": {
+      "cache": false
+    },
+
+    "dev": {
+      "cache": true,
+      "persistent": false
+    },
+    "docs:dev": {},
+    "docs:build": {},
+    "docs:preview": {}
+  }
 }

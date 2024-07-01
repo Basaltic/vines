@@ -2,18 +2,10 @@
     "name": "@viness/config",
     "version": "0.0.1",
     "private": true,
-    "license": "MIT",
-    "main": "index.js",
+    "license": "MIT",  
+    "devDependencies": {},
     "publishConfig": {
         "access": "public",
         "registry": "https://registry.npmjs.org/"
-    },
-    "dependencies": {
-        "eslint-config-prettier": "9.1.0",
-        "eslint-plugin-react": "7.34.3",
-        "eslint-config-turbo": "latest"
-    },
-    "devDependencies": {
-        "tailwindcss": "^3.2.4"
     }
 }

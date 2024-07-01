@@ -6,6 +6,6 @@
     "linked": [],
     "access": "public",
     "updateInternalDependencies": "patch",
-    "ignore": ["@viness/docs", "@viness/desktop"],
+    "ignore": ["@viness/docs", "@viness/desktop", "@viness/examples"],
     "baseBranch": "main"
 }

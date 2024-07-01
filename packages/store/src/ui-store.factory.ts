@@ -19,7 +19,6 @@ export function createStoreFactory<S extends object>(option: StateOption<S>) {
                 const cachedStore = storeManager.get(id);
                 if (cachedStore) return cachedStore as unknown as UIStore<S, T>;
 
-                option.name = `${option.name || 'store'}-${id}`;
                 option.persist = isFunction(option.persist) ? option.persist(id) : option.persist;
 
                 const state = option.lazy ? createLazyState(option) : createState<S>(option);

@@ -6,10 +6,8 @@
     "types": "./dist/index.d.ts",
     "sideEffects": false,
     "license": "MIT",
-    "files": [
-        "dist/**"
-    ],
-    
+    "files": ["dist/**"],
+
     "scripts": {
         "build": "tsup src/index.ts --format esm,cjs --dts",
         "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
@@ -29,7 +27,8 @@
         "@types/node": "catalog:",
         "tsup": "catalog:",
         "typescript": "catalog:",
-        "vitest": "catalog:"
+        "vitest": "catalog:",
+        "@testing-library/react": "catalog:"
     },
     "publishConfig": {
         "access": "public",

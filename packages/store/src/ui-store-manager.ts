@@ -1,21 +1,25 @@
-import { ID } from './types';
-import { UIStore } from './ui-store';
+import { ID } from './types.ts';
+import { ActionObjectType } from './ui-actions.ts';
+import { UIStore } from './ui-store.ts';
 
 function createStoreManager() {
-    const storeRegistry = new Map<ID, UIStore<any, any>>();
+  const storeRegistry = new Map<ID, UIStore<any, any>>();
 
-    return {
-        register<S extends object, T extends Record<string, Function>>(id: ID, store: UIStore<S, T>) {
-            storeRegistry.set(id, store);
-        },
-        get<S extends object, T extends Record<string, Function>>(id: ID): UIStore<S, T> | undefined {
-            const store = storeRegistry.get(id);
-            return store;
-        },
-        remove(id: ID) {
-            storeRegistry.delete(id);
-        },
-    };
+  return {
+    get<S extends object, Actions extends ActionObjectType>(id: ID): UIStore<S, Actions> | undefined {
+      const store = storeRegistry.get(id);
+
+      return store;
+    },
+
+    register<S extends object, Actions extends ActionObjectType>(id: ID, store: UIStore<S, Actions>) {
+      storeRegistry.set(id, store);
+    },
+
+    remove(id: ID) {
+      storeRegistry.delete(id);
+    },
+  };
 }
 
 export const storeManager = createStoreManager();

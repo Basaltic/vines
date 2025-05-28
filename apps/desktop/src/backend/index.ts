@@ -1,4 +1,4 @@
-import { IAppBackend } from './app.interface';
+import type { IAppBackend } from './app.interface';
 import { TauriAppController } from './local/app.controller';
 import { WebAppBackend } from './web/web.backend';
 

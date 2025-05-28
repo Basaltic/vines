@@ -1,5 +1,5 @@
-import { IPersistedState } from './common/types';
-import { IResponse } from './dto/response';
+import type { IPersistedState } from './common/types';
+import type { IResponse } from './dto/response';
 
 export interface IAppBackend {
     create(params: { name: string }): Promise<IResponse<{ id: string }>>;

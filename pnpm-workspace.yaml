@@ -26,7 +26,8 @@ catalog:
     i18next-browser-languagedetector: 8.0.5
     react-i18next: 15.4.1
 
-    '@tanstack/react-router': 1.117.1
+    '@tanstack/react-router': 1.120.11
+    '@tanstack/router-devtools': 1.120.11
 
     '@dnd-kit/react': 0.1.2
 
@@ -45,6 +46,9 @@ catalog:
     vitest: 3.1.1
     vitepress: 1.5.0
     '@vitejs/plugin-react': 4.4.1
+
+    tailwindcss: 4.1.7
+    '@tailwindcss/vite': 4.1.7
 
     tsup: 8.4.0
     turbo: 2.5.2

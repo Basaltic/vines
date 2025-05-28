@@ -1,1 +1,1 @@
-export * from './common-storage.ts';
+export * from './common-storage';

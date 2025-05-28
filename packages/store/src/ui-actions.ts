@@ -1,7 +1,7 @@
-import type { UIState } from './ui-state.ts';
-
 import { isFunction, isString } from 'radash';
-import type { UIStore } from './ui-store.ts';
+
+import type { UIState } from './ui-state';
+import type { UIStore } from './ui-store';
 
 /**
  * set[propName] => setPropName
@@ -85,7 +85,7 @@ function createStateActions<S extends object, Actions extends ActionObjectType>(
             if (matched) {
                 const setter = (value: S[keyof S] | ((prevValue: S[keyof S]) => S[keyof S])) => {
                     state.set((prevState) => {
-                        const nextValue = isFunction(value) ? value(prevState[wantedStateName]) : value;
+                        const nextValue = isFunction(value) ? (value as any)(prevState[wantedStateName]) : value;
                         prevState[wantedStateName] = nextValue;
                         return prevState;
                     });

@@ -1,7 +1,8 @@
-import { AtomicOperation, IMutation, IOperation, IOperationGroup } from './operation.interface';
+import { AtomicOperation, type IMutation, type IOperation, IOperationGroup } from './operation.interface';
 
 /**
- * Operation History
+ * Editor Operation History
+ * 操作历史
  */
 export class AtomicOperationHistory {
     private undoStack: IMutation[] = [];
@@ -79,7 +80,7 @@ export class AtomicOperationHistory {
     public transact(cb: () => void) {
         this.startChange();
         try {
-            cb && cb();
+            cb?.();
         } catch (e) {
             // empty
         } finally {

@@ -1,5 +1,5 @@
-import { INodeDescription } from '../../node/node';
-import { NodeType } from '../../node/node-type';
+import type { INodeDescription } from '../../node';
+import { NodeType } from '../../node-type';
 
 export const ImageNodeDescription: INodeDescription = {
     type: NodeType.HEADING,

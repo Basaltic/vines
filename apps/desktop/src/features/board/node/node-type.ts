@@ -3,11 +3,17 @@
  */
 export enum NodeType {
     /**
-     *
+     * 根节点，只存在一个根节点
      */
     ROOT = 'root',
+    /**
+     * 富文本节点
+     */
+    RichText = 'rich_text',
 
-    /**  */
+    /**
+     * 标题
+     */
     HEADING = 'heading',
 
     /**
@@ -39,9 +45,6 @@ export enum NodeType {
      * 公式
      */
     FORMULA = 'formula',
-
-    /** 普通富文本笔记 */
-    // NOTE = 'note',
 }
 
 function enumKeys<O extends object, K extends keyof O = keyof O>(obj: O): K[] {

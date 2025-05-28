@@ -1,9 +1,13 @@
 import { nodeStoreFactory } from '../store/node.store';
 import { produceWithPatches } from '@viness/store';
 import { OperationFactory } from './op.factory';
-import { AtomicOperationHistory } from './operation-history';
-import { INode, INodeLocation } from '../node/node';
+import type { AtomicOperationHistory } from './operation-history';
+import type { INode, INodeLocation } from '../node/node';
 
+/**
+ * Atomic Operations For the Card Board
+ * 原子操作
+ */
 export class AtomicOperations {
     constructor(private history: AtomicOperationHistory) {}
 

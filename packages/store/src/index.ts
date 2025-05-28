@@ -5,6 +5,6 @@ enablePatches();
 
 export { type Patch, applyPatches, produceWithPatches } from 'immer';
 
-export * from './ui-store.ts';
+export * from './ui-store';
 
-export * from './storage/index.ts';
+export * from './storage';

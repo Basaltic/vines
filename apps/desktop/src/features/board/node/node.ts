@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { NodeType } from './node-type';
+import type { FC } from 'react';
+import type { NodeType } from './node-type';
 
 export interface INodeLocation {
     /**
@@ -42,6 +42,9 @@ export interface INodeViewProps {
 }
 
 export interface INodeDescription<T extends object = object> {
+    /**
+     * Node
+     */
     type: string | NodeType;
     defaultData?: T;
     /**

@@ -1,5 +1,5 @@
-import { appStore } from '../common/store';
-import { CreativeLibrary } from './library';
+import { appOtherPersistInfoStore } from '../common/persist-store';
+import type { CreativeLibrary } from './library';
 import { isEmpty } from 'radash';
 
 const LIBRARY_LIST_STORE_KEY = 'app-library-list-key';
@@ -20,7 +20,7 @@ export class LibraryManager {
     }
 
     private async initialize() {
-        const libraryPaths = await appStore.get<string[]>(LIBRARY_LIST_STORE_KEY);
+        const libraryPaths = await appOtherPersistInfoStore.get<string[]>(LIBRARY_LIST_STORE_KEY);
         if (!isEmpty(libraryPaths)) {
         }
     }

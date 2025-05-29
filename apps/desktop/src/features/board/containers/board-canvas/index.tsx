@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import bgSvg from './assets/bg-point.svg';
 import useBoardCanvasScroll from './use-board-canvas-scroll';
-import { useCurrentNodeStore } from '../../store/board.store';
-import { NodeItemInBoard } from './node-item-in-board';
+import { useCurrentNode } from '../../board.store';
+import { CardInBoard } from './node-item-in-board';
 
 /**
  * 画板
@@ -12,10 +12,10 @@ export function BoardCanvas() {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const scrollInfo = useBoardCanvasScroll(scrollContainerRef, scrollContentRef);
-    const currentNodeStore = useCurrentNodeStore();
+    const currentNodeStore = useCurrentNode();
 
     const { location } = currentNodeStore.state.use();
-    const { lowerHeadId } = location;
+    const { headId: lowerHeadId } = location;
 
     return (
         <>
@@ -33,7 +33,7 @@ export function BoardCanvas() {
                         height: scrollInfo.scrollHeight,
                     }}
                 >
-                    {lowerHeadId && <NodeItemInBoard nodeId={lowerHeadId} />}
+                    {lowerHeadId && <CardInBoard nodeId={lowerHeadId} />}
                 </div>
             </div>
         </>
@@ -43,7 +43,7 @@ export function BoardCanvas() {
 /**
  * 全局取消使用tab在元素间切换
  */
-document.onkeydown = function (t) {
+document.onkeydown = (t) => {
     if (t.key === 'Tab') {
         return false;
     }

@@ -1,6 +1,6 @@
-import { nodeStoreFactory } from '../store/node.store';
+import { nodeStoreFactory } from '../node/node.store';
 import { produceWithPatches } from '@viness/store';
-import { OperationFactory } from './op.factory';
+import { operationFactory } from './op.factory';
 import type { AtomicOperationHistory } from './operation-history';
 import type { INode, INodeLocation } from '../node/node';
 
@@ -24,8 +24,8 @@ export class AtomicOperations {
             return;
         }
 
-        const op = OperationFactory.createInsertOp(node);
-        const inverseOp = OperationFactory.createDeleteOp(node.id);
+        const op = operationFactory.createInsertOp(node);
+        const inverseOp = operationFactory.createDeleteOp(node.id);
 
         this.history.push(op, inverseOp);
     }
@@ -51,13 +51,13 @@ export class AtomicOperations {
 
                 if (parentId) {
                     const parentNodeStore = nodeStoreFactory(parentId);
-                    parentNodeStore.actions.updateLocation({ lowerHeadId: nextId });
+                    parentNodeStore.actions.updateLocation({ headId: nextId });
                 }
             }
         }
 
-        const op = OperationFactory.createDeleteOp(nodeId);
-        const inverseOp = OperationFactory.createInsertOp(deletedNodeStore.state.get());
+        const op = operationFactory.createDeleteOp(nodeId);
+        const inverseOp = operationFactory.createInsertOp(deletedNodeStore.state.get());
 
         this.history.push(op, inverseOp);
     }
@@ -70,8 +70,8 @@ export class AtomicOperations {
 
         const inverseTo = { ...movingNodeState.location };
 
-        const op = OperationFactory.createMoveOp(movingNodeId, to);
-        const inverseOp = OperationFactory.createMoveOp(movingNodeId, inverseTo);
+        const op = operationFactory.createMoveOp(movingNodeId, to);
+        const inverseOp = operationFactory.createMoveOp(movingNodeId, inverseTo);
 
         this.history.push(op, inverseOp);
     }
@@ -92,8 +92,8 @@ export class AtomicOperations {
 
         actions.changeData(nextData);
 
-        const op = OperationFactory.createUpdateOp(nodeId, patches);
-        const inverseOp = OperationFactory.createUpdateOp(nodeId, inversePatches);
+        const op = operationFactory.createUpdateOp(nodeId, patches);
+        const inverseOp = operationFactory.createUpdateOp(nodeId, inversePatches);
 
         this.history.push(op, inverseOp);
     }

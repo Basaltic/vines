@@ -1,8 +1,9 @@
 import type { INodeDescription } from '../../node';
 import { NodeType } from '../../node-type';
+import { HeadingView } from './heading.view';
 
-export const ImageNodeDescription: INodeDescription = {
+export const headingNodeDescription: INodeDescription = {
     type: NodeType.HEADING,
-    view: () => null,
-    draggingView: () => null,
+    view: HeadingView,
+    draggingView: HeadingView,
 };

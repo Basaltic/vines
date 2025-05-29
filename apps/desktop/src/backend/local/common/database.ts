@@ -1,5 +1,6 @@
-import { Low, Adapter } from 'lowdb';
+import { Low, type Adapter } from 'lowdb';
 import { writeTextFile, readTextFile } from '@tauri-apps/plugin-fs';
+import { Store } from '@tauri-apps/plugin-store';
 
 export class TauriFileAdapter<T> implements Adapter<T> {
     constructor(private path: string) {}
@@ -30,3 +31,6 @@ export class JSONDB<Data = unknown> extends Low<Data> {
         super(adapter, defaultData);
     }
 }
+
+export const appSettingsStore = await Store.load('viness-app-setting.bin');
+export const appOtherPersistInfoStore = await Store.load('viness-app-other-persist-info.bin');

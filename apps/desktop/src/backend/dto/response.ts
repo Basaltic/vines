@@ -5,20 +5,20 @@ export interface IResponse<T = any> {
     errorMessage?: string;
 }
 
-export class Response {
-    static fail<T>(msg?: string, code: number = 400): IResponse<T> {
+export const Response = {
+    fail<T>(msg?: string, code = 400): IResponse<T> {
         return {
             success: false,
             errorCode: code,
             errorMessage: msg,
             data: null,
         };
-    }
+    },
 
-    static succeed<T>(data: T | null = null): IResponse<T> {
+    succeed<T>(data: T | null = null): IResponse<T> {
         return {
             data,
             success: false,
         };
-    }
-}
+    },
+};

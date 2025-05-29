@@ -5,7 +5,11 @@ export const APP_STORE_KEYSS = {
 };
 
 export class AppSettingRepo {
-    private store = new Store('viness-app-setting.bin');
+    private store;
+
+    constructor() {
+        this.store = Store.load('viness-app-setting.bin');
+    }
 
     async getRecentUsedLibPath() {
         const path = await this.store.get(APP_STORE_KEYSS.RecentUsedLibPath);

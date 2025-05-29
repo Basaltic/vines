@@ -1,9 +1,13 @@
+import { token } from '@viness/core';
 import { NodeDescriptionRegistry } from './node/node-registry';
 import { Commands } from './operation/command';
 import { AtomicOperationHistory } from './operation/operation-history';
 import { AtomicOperations } from './operation/operations';
+import { headingNodeDescription } from './node/node-impl/heading';
 
-export class Board {
+export const BOARD_BOARD_EDITOR_TOKEN = token<CardBoardEditor>('board');
+
+export class CardBoardEditor {
     private history: AtomicOperationHistory;
     private operations: AtomicOperations;
 
@@ -18,3 +22,7 @@ export class Board {
         this.commands = new Commands(this.history, this.operations);
     }
 }
+
+export const cardBoardEditor = new CardBoardEditor();
+
+cardBoardEditor.descriptionRegistry.register(headingNodeDescription);

@@ -11,8 +11,11 @@
         "tauri:dev": "tauri dev"
     },
     "dependencies": {
+        "@viness/core": "workspace:*",
+        "@viness/store": "workspace:*",
+        "@viness/config": "workspace:*",
+
         "@dnd-kit/react": "catalog:",
-        "@radix-ui/react-slot": "^1.1.0",
         "@tanstack/react-router": "catalog:",
         "@tauri-apps/api": "catalog:",
         "@tauri-apps/plugin-dialog": "catalog:",
@@ -20,10 +23,9 @@
         "@tauri-apps/plugin-shell": "catalog:",
         "@tauri-apps/plugin-sql": "catalog:",
         "@tauri-apps/plugin-store": "catalog:",
-        "@viness/core": "workspace:*",
-        "@viness/store": "workspace:*",
-        "@viness/ui": "workspace:*",
+
         "ahooks": "catalog:",
+        "clsx": "catalog:",
         "dexie": "catalog:",
         "i18next": "catalog:",
         "i18next-browser-languagedetector": "catalog:",
@@ -34,7 +36,8 @@
         "radash": "catalog:",
         "react": "catalog:",
         "react-dom": "catalog:",
-        "react-i18next": "catalog:"
+        "react-i18next": "catalog:",
+        "tailwind-merge": "catalog:"
     },
     "devDependencies": {
         "@tailwindcss/vite": "catalog:",

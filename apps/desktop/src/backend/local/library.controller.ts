@@ -2,15 +2,22 @@ import { mkdir } from '@tauri-apps/plugin-fs';
 import { open } from '@tauri-apps/plugin-dialog';
 import { CreativeLibrary } from './domain/library';
 import { LibraryManager } from './domain/library-manager';
-import { OpenHistory } from './domain/open-history';
-import { Response } from '../dto/response';
-import { IAppBackend } from '../app.interface';
-import { IPersistedState } from '../common/types';
+import { OpenHistory } from './domain/app-history';
+import { type IResponse, Response } from '../dto/response';
+import type { ILibraryController } from '../app.interface';
+import type { IPersistedState } from '../common/types';
 
 /**
  *
  */
-export class TauriAppController implements IAppBackend {
+export class LibraryController implements ILibraryController {
+    openLast(): Promise<IResponse<{ id: string }>> {
+        throw new Error('Method not implemented.');
+    }
+
+    list(): Promise<IResponse<any[]>> {
+        throw new Error('Method not implemented.');
+    }
     private openHistory = new OpenHistory();
 
     private libraryManager = new LibraryManager();
@@ -23,7 +30,10 @@ export class TauriAppController implements IAppBackend {
      * - store the new lib id into the history
      */
     async create(params: { name: string }) {
-        const basePath = await open({ directory: true, multiple: false, canCreateDirectories: true, title: 'select a folder' });
+        let basePath: string;
+        try {
+            basePath = await open({ directory: true, multiple: false, canCreateDirectories: true, title: 'select a folder' });
+        } catch (e) {}
 
         if (!basePath) return Response.fail<any>();
 
@@ -34,6 +44,7 @@ export class TauriAppController implements IAppBackend {
             await mkdir(path);
         } catch (e) {
             console.log(e);
+            return Response.fail<any>('directory is created', 400);
         }
 
         const library = await CreativeLibrary.initialize(path);
@@ -49,8 +60,9 @@ export class TauriAppController implements IAppBackend {
     /**
      * Open a folder
      */
-    async open(path: string | null = null) {
-        if (!path) {
+    async open(idOrPath: string | null = null) {
+        let path = '';
+        if (!idOrPath) {
             // select library folder
             path = await open({ directory: true, multiple: false, canCreateDirectories: true, title: 'select a library folder' });
 
@@ -78,7 +90,7 @@ export class TauriAppController implements IAppBackend {
      * @param id
      */
     async load(id: string) {
-        let library = this.libraryManager.get(id);
+        const library = this.libraryManager.get(id);
 
         if (library?.basePath) {
             this.openHistory.set(library?.basePath);

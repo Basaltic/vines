@@ -1,6 +1,6 @@
-import { createStoreFactory } from '@viness/store';
-import type { INode, INodeLocation } from '../node/node';
-import { createStatePersisiStorage } from './persist/storage';
+import { createStore } from '@viness/store';
+import type { INode, INodeLocation } from './node';
+import { createStatePersisiStorage } from './node-persist/storage';
 
 export type NodeState = INode & {
     selected: boolean;
@@ -11,12 +11,11 @@ export const defaultNodeState: NodeState = {
     type: '',
     data: void 0,
     location: {},
-
     selected: false,
 };
 
 // every node instance has a individual state store instance
-export const nodeStoreFactory = createStoreFactory<NodeState>({
+export const nodeStoreFactory = createStore<NodeState>({
     defaultState: defaultNodeState,
     persist: (id: string) => {
         return {

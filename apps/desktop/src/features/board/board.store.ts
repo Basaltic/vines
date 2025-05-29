@@ -5,8 +5,8 @@
  */
 
 import { createStore } from '@viness/store';
-import { createStatePersisiStorage } from './persist/storage';
-import { nodeStoreFactory } from './node.store';
+import { createStatePersisiStorage } from './node/node-persist/storage';
+import { nodeStoreFactory } from './node/node.store';
 import { generateId } from '@/common/util/id';
 
 export interface IBoardState {
@@ -35,26 +35,7 @@ export const boardStore = createStore<IBoardState>({
         set((s) => {
             s.current = current;
         }),
-}));
-
-export const getCurrentNodeStore = () => {
-    const { current } = boardStore.state.get();
-
-    return current ? nodeStoreFactory(current) : getUppestNodeStore();
-};
-
-export const useCurrentNodeStore = () => {
-    const { current } = boardStore.state.use();
-
-    let currentNodeId = current;
-    if (!currentNodeId) {
-        const { uppest } = boardStore.state.get();
-        currentNodeId = uppest;
-        boardStore.actions.changeCurrent(uppest);
-    }
-
-    return nodeStoreFactory(currentNodeId);
-};
+}))();
 
 export const getUppestNodeStore = () => {
     const { uppest } = boardStore.state.get();
@@ -72,14 +53,21 @@ export const getUppestNodeStore = () => {
     return store;
 };
 
-export const useUppestNodeStore = () => {
-    const { uppest } = boardStore.state.use();
+export const getCurrentNodeStore = () => {
+    const { current } = boardStore.state.get();
 
-    let uppestNodeId = uppest;
-    if (!uppestNodeId) {
-        uppestNodeId = generateId();
-        boardStore.actions.changeUppest(uppestNodeId);
+    return current ? nodeStoreFactory(current) : getUppestNodeStore();
+};
+
+export const useCurrentNode = () => {
+    const { current } = boardStore.state.use();
+
+    let currentNodeId = current;
+    if (!currentNodeId) {
+        const { uppest } = boardStore.state.get();
+        currentNodeId = uppest;
+        boardStore.actions.changeCurrent(uppest);
     }
 
-    return nodeStoreFactory(uppestNodeId);
+    return nodeStoreFactory(currentNodeId);
 };

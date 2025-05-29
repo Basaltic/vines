@@ -10,10 +10,6 @@ export type CreativeLibraryInfo = {
     name: string;
 };
 
-export type CreativeLibrarySettings = {};
-
-export type CreativeLibraryState = {};
-
 export type LibraryNodeEntity = {
     id: string;
 };

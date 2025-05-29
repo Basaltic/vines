@@ -1,14 +1,14 @@
-import { cn } from '@viness/ui/lib/utils';
-import { memo, useRef } from 'react';
+import { memo } from 'react';
 
-import { useNodeStoreFactory } from '../../store/node.store';
+import { useNodeStoreFactory } from '../../node/node.store';
 import { board } from '../../board.setup';
 import { useDraggable } from '@dnd-kit/react';
+import { cn } from '@/common/util/styles';
 
 /**
  * 画布元素（容器）组件
  */
-export const NodeItemInBoard = memo((props: { nodeId: string }) => {
+export const CardInBoard = memo((props: { nodeId: string }) => {
     const { nodeId } = props;
 
     const nodeStore = useNodeStoreFactory(nodeId);
@@ -46,7 +46,7 @@ export const NodeItemInBoard = memo((props: { nodeId: string }) => {
                     <description.view id={nodeId} />
                 </div>
             </div>
-            {nextId && <NodeItemInBoard nodeId={nextId} />}
+            {nextId && <CardInBoard nodeId={nextId} />}
         </>
     );
 });

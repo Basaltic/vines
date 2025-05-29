@@ -1,6 +1,9 @@
 import type { FC } from 'react';
 import type { NodeType } from './node-type';
 
+/**
+ * The
+ */
 export interface INodeLocation {
     /**
      * x
@@ -25,7 +28,7 @@ export interface INodeLocation {
     /**
      * Child head node id
      */
-    lowerHeadId?: string | null;
+    headId?: string | null;
 
     [key: string]: any;
 }
@@ -43,13 +46,29 @@ export interface INodeViewProps {
 
 export interface INodeDescription<T extends object = object> {
     /**
-     * Node
+     * Node Type
      */
     type: string | NodeType;
+    /**
+     * The default data for the node
+     */
     defaultData?: T;
+    /**
+     * Menu
+     */
+    menu?: {
+        /**
+         *
+         */
+        where?: string;
+        icon?: any;
+    };
     /**
      * default board view
      */
     view: FC<INodeViewProps>;
-    draggingView: FC;
+    /**
+     * the view when dragging
+     */
+    draggingView: FC<INodeViewProps>;
 }

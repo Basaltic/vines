@@ -1,6 +1,6 @@
 import { generateId } from '@/common/util/id';
-import { AtomicOperationHistory } from './operation-history';
-import { AtomicOperations } from './operations';
+import type { AtomicOperationHistory } from './operation-history';
+import type { AtomicOperations } from './operations';
 
 export class Commands {
     constructor(

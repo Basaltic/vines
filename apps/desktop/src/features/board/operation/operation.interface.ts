@@ -1,6 +1,6 @@
-import { Patch } from '@viness/store';
-import { NodeType } from '../node/node-type';
-import { INode, INodeLocation } from '../node/node';
+import type { Patch } from '@viness/store';
+import type { NodeType } from '../node/node-type';
+import type { INode, INodeLocation } from '../node/node';
 
 export enum OperationType {
     INSERT = 'insert',
@@ -104,7 +104,7 @@ export interface UpdateAtomicOperation<C = any> extends AtomicOperation<Operatio
     data: Partial<C>;
 }
 
-export interface IOperation<O = OperationType, P = {}> {
+export interface IOperation<O = OperationType, P = Record<string, any>> {
     id: string;
     type: O;
     payload: P;

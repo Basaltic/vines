@@ -1,9 +1,5 @@
 import type { IAppBackend } from './app.interface';
-import { TauriAppController } from './local/app.controller';
-import { WebAppBackend } from './web/web.backend';
+import { localAppBackend } from './local';
+import { webAppBackend } from './web';
 
-export const controllers: {
-    app: IAppBackend;
-} = {
-    app: window.__TAURI__ ? new TauriAppController() : new WebAppBackend(),
-};
+export const controllers: IAppBackend = window.__TAURI__ ? localAppBackend : webAppBackend;

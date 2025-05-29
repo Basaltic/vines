@@ -1,6 +1,6 @@
 import { controllers } from '@/backend';
-import { PersistStorage } from '@viness/store';
-import { INode } from '../../node/node';
+import type { PersistStorage } from '@viness/store';
+import type { INode } from '../node';
 
 export function createStatePersisiStorage(id: string) {
     const persistentStorage: PersistStorage<INode> = {
@@ -8,9 +8,9 @@ export function createStatePersisiStorage(id: string) {
             const res = await controllers.app.getState(id);
             if (res.success) {
                 return res.data || { state: {} as any, version: 1 };
-            } else {
-                return { state: {} as any, version: 1 };
             }
+
+            return { state: {} as any, version: 1 };
         },
         setItem: (_, value) => {
             controllers.app.persistState(id, { state: value, version: 1 });

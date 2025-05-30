@@ -4,11 +4,11 @@ import type { ILibraryViewHistory } from '@/backend/domain/library';
 
 const OPEN_HISTORY = 'app-library-open-history';
 
-export class OpenHistory {
+export class LibraryOpenHistory {
     // TODO: add limit
     private openHistory: ILibraryViewHistory[] = [];
 
-    async set(path: string) {
+    async add(path: string) {
         this.openHistory.unshift({ id: '', path });
         this.openHistory = this.openHistory.slice(0, 10);
 

@@ -3,16 +3,16 @@ import { JSONDB } from '../common/database';
 import type { IPersistedState } from '../../common/types';
 
 export interface ILibraryStates {
-    states: Record<string, IPersistedState>;
+    nodes: Record<string, IPersistedState>;
 }
 
 export const DEFAULT_STATES_DATA = {
-    states: {},
+    nodes: {},
 };
 
-export const LIBRARY_NODES_STORE_FILE = 'states.json';
+export const LIBRARY_NODES_STORE_FILE = 'nodes.json';
 
-export class LibraryStates {
+export class LibraryNodes {
     private db: JSONDB<ILibraryStates>;
 
     constructor(db: JSONDB<ILibraryStates>) {
@@ -29,23 +29,23 @@ export class LibraryStates {
             db.write();
         }
 
-        return new LibraryStates(db);
+        return new LibraryNodes(db);
     }
 
     async get(id: string) {
         await this.db.read();
-        return this.db.data.states[id];
+        return this.db.data.nodes[id];
     }
 
     async set(id: string, node: IPersistedState) {
         return this.db.update((data) => {
-            data.states[id] = node;
+            data.nodes[id] = node;
         });
     }
 
     async remove(id: string) {
         return this.db.update((data) => {
-            delete data.states[id];
+            delete data.nodes[id];
         });
     }
 }

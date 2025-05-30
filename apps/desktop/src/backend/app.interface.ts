@@ -3,13 +3,15 @@ import type { IResponse } from './dto/response';
 
 export interface ILibraryController {
     /**
+     * Open the last opened library.
+     */
+    load(id: string): Promise<IResponse<{ id: string }>>;
+
+    /**
      * Open an existed library
      */
     open(path: string | null): Promise<IResponse<{ id: string }>>;
-    /**
-     * Open the last opened library.
-     */
-    openLast(): Promise<IResponse<{ id: string }>>;
+
     /**
      * Create a new library
      */
@@ -19,10 +21,6 @@ export interface ILibraryController {
      * Get a list of libraries
      */
     list(): Promise<IResponse<any[]>>;
-
-    getState(id: string): Promise<IResponse<IPersistedState>>;
-    persistState(id: string, state: IPersistedState): Promise<IResponse>;
-    removeState(id: string): Promise<IResponse>;
 }
 
 export interface IAppSettingsController {

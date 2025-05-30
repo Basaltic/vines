@@ -10,8 +10,8 @@ const LIBRARY_LIST_STORE_KEY = 'app-library-list-key';
 export class LibraryManager {
     private registry = new Map<string, CreativeLibrary>();
 
-    get(path: string) {
-        return this.registry.get(path);
+    get(idOrPath: string) {
+        return this.registry.get(idOrPath);
     }
 
     register(library: CreativeLibrary) {

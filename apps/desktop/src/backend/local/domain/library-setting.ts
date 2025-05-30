@@ -18,21 +18,20 @@ export const LIBRARY_SETTING_STORE_FILE = 'viness.json';
 
 export class LibraryInfo {
     private db: JSONDB<ILibraryInfo>;
+    private info: ILibraryInfo;
 
     constructor(db: JSONDB<ILibraryInfo>) {
         this.db = db;
+        this.info = db.data;
     }
 
-    static async initialize(basePath: string) {
+    static async initialize(basePath: string, name: string) {
         const path = `${basePath}/${LIBRARY_SETTING_STORE_FILE}`;
         const existed = await exists(path);
 
         let db: JSONDB<ILibraryInfo>;
         if (!existed) {
-            const defaultInfo = {
-                ...initialLibraryInfo,
-                id: generateId(),
-            };
+            const defaultInfo = { ...initialLibraryInfo, name, id: generateId() };
             db = new JSONDB<ILibraryInfo>(path, defaultInfo);
             await db.write();
         } else {
@@ -43,7 +42,21 @@ export class LibraryInfo {
         return new LibraryInfo(db);
     }
 
-    get data() {
-        return this.db.data;
+    get() {
+        return this.info;
+    }
+
+    async update(info: Partial<ILibraryInfo>) {
+        return this.db.update((data) => {
+            // biome-ignore lint/complexity/noForEach: <explanation>
+            Object.keys(info).forEach((key) => {
+                data[key] = info[key];
+            });
+        });
     }
 }
+
+
+
+
+node -> local file ? x

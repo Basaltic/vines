@@ -1,8 +1,8 @@
 import { mkdir } from '@tauri-apps/plugin-fs';
 import { open } from '@tauri-apps/plugin-dialog';
 import { CreativeLibrary } from './domain/library';
-import { LibraryManager } from './domain/library-manager';
-import { OpenHistory } from './domain/app-history';
+import { LibraryManager } from './domain/library-instance-manager';
+import { LibraryOpenHistory } from './domain/app-history';
 import { type IResponse, Response } from '../dto/response';
 import type { ILibraryController } from '../app.interface';
 import type { IPersistedState } from '../common/types';
@@ -11,18 +11,8 @@ import type { IPersistedState } from '../common/types';
  *
  */
 export class LibraryController implements ILibraryController {
-    openLast(): Promise<IResponse<{ id: string }>> {
-        throw new Error('Method not implemented.');
-    }
-
-    list(): Promise<IResponse<any[]>> {
-        throw new Error('Method not implemented.');
-    }
-    private openHistory = new OpenHistory();
-
     private libraryManager = new LibraryManager();
-
-    private currentLibrary?: CreativeLibrary;
+    private libraryOpenHistory = new LibraryOpenHistory();
 
     /**
      * create a new creative library in a specific path
@@ -50,9 +40,7 @@ export class LibraryController implements ILibraryController {
         const library = await CreativeLibrary.initialize(path);
         this.libraryManager.register(library);
 
-        this.openHistory.set(path);
-
-        this.currentLibrary = library;
+        this.libraryOpenHistory.add(path);
 
         return Response.succeed({ id: library.info.data.id });
     }
@@ -60,9 +48,9 @@ export class LibraryController implements ILibraryController {
     /**
      * Open a folder
      */
-    async open(idOrPath: string | null = null) {
-        let path = '';
-        if (!idOrPath) {
+    async open(passedPath: string | null = null) {
+        let path = passedPath;
+        if (!path) {
             // select library folder
             path = await open({ directory: true, multiple: false, canCreateDirectories: true, title: 'select a library folder' });
 
@@ -70,16 +58,15 @@ export class LibraryController implements ILibraryController {
         }
 
         let library = this.libraryManager.get(path);
+        const existed = !!library;
 
         // validate
-        if (!library) {
+        if (!existed) {
             library = await CreativeLibrary.initialize(path);
             this.libraryManager.register(library);
         }
 
-        this.openHistory.set(path);
-
-        this.currentLibrary = library;
+        this.libraryOpenHistory.add(path);
 
         return Response.succeed({ id: library.info.data.id });
     }
@@ -93,37 +80,13 @@ export class LibraryController implements ILibraryController {
         const library = this.libraryManager.get(id);
 
         if (library?.basePath) {
-            this.openHistory.set(library?.basePath);
+            this.libraryOpenHistory.add(library?.basePath);
         }
-
-        this.currentLibrary = library;
 
         return Response.succeed({ id: library?.info.data.id || '' });
     }
 
-    async getState(id: string) {
-        try {
-            await this.currentLibrary?.states.get(id);
-            return Response.succeed<IPersistedState>();
-        } catch (e) {}
-
-        return Response.fail<IPersistedState>();
-    }
-
-    async persistState(id: string, state: IPersistedState) {
-        try {
-            await this.currentLibrary?.states.set(id, state);
-            return Response.succeed();
-        } catch (e) {}
-
-        return Response.fail();
-    }
-
-    async removeState(id: string) {
-        try {
-            await this.currentLibrary?.states.remove(id);
-            return Response.succeed<IPersistedState>();
-        } catch (e) {}
-        return Response.fail<IPersistedState>();
+    list(): Promise<IResponse<any[]>> {
+        throw new Error('Method not implemented.');
     }
 }

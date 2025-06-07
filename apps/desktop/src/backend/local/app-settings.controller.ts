@@ -1,5 +1,5 @@
 import type { IAppSettingsController } from '../app.interface';
-import type { IResponse } from '../dto/response';
+import type { IResponse } from '../domain/dto/response';
 
 export class AppSettingsController implements IAppSettingsController {
     get() {

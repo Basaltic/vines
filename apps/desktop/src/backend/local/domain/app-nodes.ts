@@ -1,9 +1,10 @@
 import { exists } from '@tauri-apps/plugin-fs';
 import { JSONDB } from '../common/database';
 import type { IPersistedState } from '../../common/types';
+import type { INode } from '@/backend/domain/node';
 
 export interface ILibraryStates {
-    nodes: Record<string, IPersistedState>;
+    nodes: Record<string, IPersistedState<INode>>;
 }
 
 export const DEFAULT_STATES_DATA = {
@@ -12,14 +13,14 @@ export const DEFAULT_STATES_DATA = {
 
 export const LIBRARY_NODES_STORE_FILE = 'nodes.json';
 
-export class LibraryNodes {
+export class AppNodes {
     private db: JSONDB<ILibraryStates>;
 
     constructor(db: JSONDB<ILibraryStates>) {
         this.db = db;
     }
 
-    static initialize(basePath: string) {
+    static create(basePath: string) {
         const path = `${basePath}/${LIBRARY_NODES_STORE_FILE}`;
 
         const db = new JSONDB<ILibraryStates>(path, DEFAULT_STATES_DATA);
@@ -29,7 +30,7 @@ export class LibraryNodes {
             db.write();
         }
 
-        return new LibraryNodes(db);
+        return new AppNodes(db);
     }
 
     async get(id: string) {

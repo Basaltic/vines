@@ -1,27 +1,6 @@
-import type { IPersistedState } from './common/types';
-import type { IResponse } from './dto/response';
+import type { IResponse } from './domain/dto/response';
 
-export interface ILibraryController {
-    /**
-     * Open the last opened library.
-     */
-    load(id: string): Promise<IResponse<{ id: string }>>;
-
-    /**
-     * Open an existed library
-     */
-    open(path: string | null): Promise<IResponse<{ id: string }>>;
-
-    /**
-     * Create a new library
-     */
-    create(params: { name: string }): Promise<IResponse<{ id: string }>>;
-
-    /**
-     * Get a list of libraries
-     */
-    list(): Promise<IResponse<any[]>>;
-}
+export type ILibraryController = {};
 
 export interface IAppSettingsController {
     /**

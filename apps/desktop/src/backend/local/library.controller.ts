@@ -1,9 +1,9 @@
 import { mkdir } from '@tauri-apps/plugin-fs';
 import { open } from '@tauri-apps/plugin-dialog';
-import { CreativeLibrary } from './domain/library';
+import { CreativeLibrary } from './domain/app';
 import { LibraryManager } from './domain/library-instance-manager';
 import { LibraryOpenHistory } from './domain/app-history';
-import { type IResponse, Response } from '../dto/response';
+import { type IResponse, Response } from '../domain/dto/response';
 import type { ILibraryController } from '../app.interface';
 import type { IPersistedState } from '../common/types';
 
@@ -69,21 +69,6 @@ export class LibraryController implements ILibraryController {
         this.libraryOpenHistory.add(path);
 
         return Response.succeed({ id: library.info.data.id });
-    }
-
-    /**
-     * load library
-     *
-     * @param id
-     */
-    async load(id: string) {
-        const library = this.libraryManager.get(id);
-
-        if (library?.basePath) {
-            this.libraryOpenHistory.add(library?.basePath);
-        }
-
-        return Response.succeed({ id: library?.info.data.id || '' });
     }
 
     list(): Promise<IResponse<any[]>> {

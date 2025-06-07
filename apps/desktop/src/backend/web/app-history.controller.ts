@@ -1,5 +1,5 @@
 import type { IAppHistoryController } from '../app.interface';
-import type { IResponse } from '../dto/response';
+import type { IResponse } from '../domain/dto/response';
 
 export class AppHistoryController implements IAppHistoryController {
     getLibraryViewHistory(): Promise<IResponse<string[]>> {

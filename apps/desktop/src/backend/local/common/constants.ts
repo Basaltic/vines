@@ -1,6 +1,2 @@
-export const CREATIVE_LIBRARY_CONSTS = {
-    MetaFileName: 'meta.json',
-    NodesFileName: 'nodes.json',
-    SettingFileName: 'viness.json',
-    RawFileStorageFolder: 'assets',
-};
+export const APP_SETTING_STORE_NAME = 'viness-app-setting.bin';
+export const APP_RAW_ASSETS_STORE_FOLDER_NAME = 'assets';

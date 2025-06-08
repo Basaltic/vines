@@ -1,4 +1,4 @@
-export interface INode {
+export interface IVinessNode {
     id: string;
     name: string;
     type: string;

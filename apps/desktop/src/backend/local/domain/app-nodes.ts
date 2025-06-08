@@ -38,7 +38,7 @@ export class AppNodes {
         return this.db.data.nodes[id];
     }
 
-    async set(id: string, node: IPersistedState) {
+    async set(id: string, node: IPersistedState<INode>) {
         return this.db.update((data) => {
             data.nodes[id] = node;
         });

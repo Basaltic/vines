@@ -1,4 +1,3 @@
-import type { LibraryInfo } from './library-setting';
 import { AppAssets } from './app-assets';
 import { AppNodes } from './app-nodes';
 import { LocalStore } from '../common/persist-store';

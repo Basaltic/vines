@@ -1,17 +1,17 @@
 {
     "name": "@viness/desktop",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
         "tauri": "tauri",
-        "tauri:dev": "tauri dev",
-        "ui:add": "pnpm dlx shadcn add"
+        "tauri:dev": "tauri dev"
     },
     "dependencies": {
+        "@viness/ui": "workspace:*",
         "@viness/core": "workspace:*",
         "@viness/store": "workspace:*",
         "@viness/config": "workspace:*",

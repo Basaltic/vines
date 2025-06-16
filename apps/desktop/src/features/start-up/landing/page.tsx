@@ -1,7 +1,7 @@
-import { useNavigate } from '@tanstack/react-router';
+// import { useNavigate } from '@tanstack/react-router';
 import { useMount } from 'ahooks';
-import { getCurrentNodeStore } from '../../board/board.store';
-import { controllers } from '@/backend';
+// import { getCurrentNodeStore } from '../../board/board.store';
+// import { controllers } from '@/backend';
 
 /**
  * The Entry Page of the Application
@@ -12,7 +12,7 @@ import { controllers } from '@/backend';
  * - if last opened library exists, redirect to the library page
  */
 export function LandingPage() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useMount(async () => {
         // const lastPath = await controllers.app.openHistory.getFirst();

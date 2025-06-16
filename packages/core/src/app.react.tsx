@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { createApp, VinessApp } from './app';
-import { Container } from './injection';
+import { Container, type Token } from './injection';
 import type { Module } from './module';
 
 const VinessAppContext = createContext<VinessApp>(new VinessApp(new Container()));
@@ -19,3 +19,9 @@ export const useVinessApp = () => {
 
     return app;
 };
+
+export function useResolve<T>(token: Token<T>) {
+    const app = useVinessApp();
+
+    return app.resolve(token);
+}

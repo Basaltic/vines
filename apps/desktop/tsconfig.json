@@ -24,6 +24,7 @@
     /* Others */
     "paths": {
       "@/*": ["./src/*"],
+      "@viness/ui/*": ["../../packages/ui/src/*"]
     },
     "baseUrl": ".",
   },

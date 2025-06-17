@@ -3,6 +3,8 @@ import { routeTree } from './app-route-tree';
 
 export const router = createRouter({ routeTree: routeTree });
 
+console.log(router);
+
 // Register things for typesafety
 declare module '@tanstack/react-router' {
     interface Register {

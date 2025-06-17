@@ -1,9 +1,10 @@
 import { memo } from 'react';
 
 import { useNodeStoreFactory } from '../../node/node.store';
-import { board } from '../../board.setup';
+
 import { useDraggable } from '@dnd-kit/react';
 import { cn } from '@/common/util/styles';
+import { cardBoardEditor } from '../../board';
 
 /**
  * 画布元素（容器）组件
@@ -21,7 +22,7 @@ export const CardInBoard = memo((props: { nodeId: string }) => {
     const { location, type } = nodeState;
     const { x = 0, y = 0, nextId } = location;
 
-    const description = board.descriptionRegistry.get(type);
+    const description = cardBoardEditor.descriptionRegistry.get(type);
 
     const isDragging = false;
     const isNodeSelected = false;

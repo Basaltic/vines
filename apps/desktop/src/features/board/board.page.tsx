@@ -3,16 +3,8 @@ import { useParams } from '@tanstack/react-router';
 import { BoardCanvas } from './containers/board-canvas';
 import { NavBreadcrumb } from './containers/nav-breadcrumb';
 import { BoardMenu } from './containers/board-menu';
-import { useRequest } from 'ahooks';
-import { controllers } from '@/backend';
 
-function useBoardInitialization() {
-    const params = useParams({ from: '__root__', strict: true });
-
-    const { id } = params;
-
-    const { data, loading } = useRequest(controllers.library.open, { defaultParams: [id], ready: Boolean(id) });
-}
+function useBoardInitialization() {}
 
 /**
  * A Board to manage all the nodes

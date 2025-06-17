@@ -119,6 +119,6 @@ export type IDeleteOperation = IOperation<OperationType.DELETE, { nodeId: string
 export type IUpdateOperation = IOperation<OperationType.UPDATE, { nodeId: string; changes: Patch[] }>;
 export type INavigateOperation = IOperation<OperationType.NAVIGATE, { nodeId: string }>;
 
-// [redo, undo]
+// [redo operation, undo operation]
 export type IOperationGroup = [IOperation, IOperation];
-export type IMutation = IOperationGroup[];
+export type IOperationMutation = IOperationGroup[];

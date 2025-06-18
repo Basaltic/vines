@@ -2,6 +2,9 @@ import { generateId } from '@/common/util/id';
 import type { AtomicOperationHistory } from './operation/operation-history';
 import type { AtomicOperations } from './operation/operations';
 
+/**
+ * Commands for the editor to execute to change the state of the board.
+ */
 export class Commands {
     constructor(
         private history: AtomicOperationHistory,

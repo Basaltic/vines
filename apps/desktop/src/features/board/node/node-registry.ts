@@ -1,4 +1,4 @@
-import type { INodeDescription } from './node';
+import type { INodeDescription } from './node.interface';
 
 export class NodeDescriptionRegistry {
     private map = new Map<string, INodeDescription>();

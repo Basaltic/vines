@@ -1,6 +1,6 @@
 import { generateId } from '@/common/util/id';
-import type { AtomicOperationHistory } from './operation-history';
-import type { AtomicOperations } from './operations';
+import type { AtomicOperationHistory } from './operation/operation-history';
+import type { AtomicOperations } from './operation/operations';
 
 export class Commands {
     constructor(
@@ -9,11 +9,15 @@ export class Commands {
     ) {}
 
     undo() {
-        return this.history.undo(() => {});
+        this.history.transact(() => {
+            this.history.undo(() => {});
+        });
     }
 
     redo() {
-        return this.history.redo(() => {});
+        this.history.transact(() => {
+            this.history.redo(() => {});
+        });
     }
 
     insertNode(type: string, data: any) {

@@ -8,7 +8,7 @@ import {
     type IUpdateOperation,
     OperationType,
 } from './operation.interface';
-import type { INode, INodeLocation } from '../node/node';
+import type { INode, INodeLocation } from '../node/node.interface';
 
 /**
  * A factory to create atomic operation instance

@@ -87,6 +87,13 @@ export class AtomicOperationHistory {
             this.endChange();
         }
     }
+
+    /**
+     * Subscribe the mutation change
+     */
+    public onMutationChange(cb: (mutation: IOperationMutation) => void) {
+        this.mutationQueue.forEach(cb);
+    }
 }
 
 export const atomicOperationHistory = new AtomicOperationHistory();

@@ -1,6 +1,6 @@
 import { token } from '@viness/core';
 import { NodeDescriptionRegistry } from './node/node-registry';
-import { Commands } from './operation/command';
+import { Commands } from './command';
 import { AtomicOperationHistory } from './operation/operation-history';
 import { AtomicOperations } from './operation/operations';
 import { headingNodeDescription } from './node/node-impl/heading';

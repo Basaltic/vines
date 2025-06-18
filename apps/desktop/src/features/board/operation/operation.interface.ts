@@ -1,6 +1,6 @@
 import type { Patch } from '@viness/store';
 import type { NodeType } from '../node/node-type';
-import type { INode, INodeLocation } from '../node/node';
+import type { INode, INodeLocation } from '../node/node.interface';
 
 export enum OperationType {
     INSERT = 'insert',

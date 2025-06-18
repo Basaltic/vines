@@ -2,7 +2,7 @@ import { nodeStoreFactory } from '../node/node.store';
 import { produceWithPatches } from '@viness/store';
 import { operationFactory } from './op.factory';
 import type { AtomicOperationHistory } from './operation-history';
-import type { INode, INodeLocation } from '../node/node';
+import type { INode, INodeLocation } from '../node/node.interface';
 
 /**
  * Atomic Operations For the Card Board
@@ -14,18 +14,18 @@ export class AtomicOperations {
     /**
      * insert a new node to the board
      */
-    insert(node: INode) {
-        if (node.location.prevId) {
-        } else if (node.location.nextId) {
+    insert(newNode: INode) {
+        if (newNode.location.prevId) {
+        } else if (newNode.location.nextId) {
         }
         // put to the last
-        else if (node.location.upperId) {
+        else if (newNode.location.upperId) {
         } else {
             return;
         }
 
-        const op = operationFactory.createInsertOp(node);
-        const inverseOp = operationFactory.createDeleteOp(node.id);
+        const op = operationFactory.createInsertOp(newNode);
+        const inverseOp = operationFactory.createDeleteOp(newNode.id);
 
         this.history.push(op, inverseOp);
     }

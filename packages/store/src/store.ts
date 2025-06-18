@@ -1,7 +1,11 @@
-// import type { UIState } from './ui-state';
+import { createState, type StateOption, type UIState } from './ui-state';
 
-// export abstract class Store<StateValue extends object> {
-//     protected: UIState
-//     constructor(option: StateOption<S>) {
-
-//     }
+/**
+ * Extend this class to create a store
+ */
+export abstract class Store<StateValue extends object> {
+    protected state: UIState<StateValue>;
+    constructor(option: StateOption<StateValue>) {
+        this.state = createState(option);
+    }
+}

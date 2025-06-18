@@ -1,6 +1,6 @@
 import { controllers } from '@/backend';
 import type { PersistStorage } from '@viness/store';
-import type { INode } from '../node';
+import type { INode } from '../node.interface';
 
 export function createStatePersisiStorage(id: string) {
     const persistentStorage: PersistStorage<INode> = {

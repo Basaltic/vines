@@ -1,4 +1,4 @@
-import type { INodeDescription } from '../../node';
+import type { INodeDescription } from '../../node.interface';
 import { NodeType } from '../../node-type';
 
 export const ImageNodeDescription: INodeDescription = {

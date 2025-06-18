@@ -1,16 +1,16 @@
-import { AtomicOperation, type IMutation, type IOperation, IOperationGroup } from './operation.interface';
+import type { IOperationMutation, IOperation } from './operation.interface';
 
 /**
  * Editor Operation History
  * 操作历史
  */
 export class AtomicOperationHistory {
-    private undoStack: IMutation[] = [];
-    private redoStack: IMutation[] = [];
-    private mutation: IMutation = [];
+    private undoStack: IOperationMutation[] = [];
+    private redoStack: IOperationMutation[] = [];
+    private mutation: IOperationMutation = [];
     private isChanging = false;
 
-    public mutationQueue: IMutation[] = [];
+    public mutationQueue: IOperationMutation[] = [];
 
     /**
      * record operation history
@@ -49,7 +49,7 @@ export class AtomicOperationHistory {
     /**
      * 撤销
      */
-    public undo(callback: (mutation: IMutation) => void) {
+    public undo(callback: (mutation: IOperationMutation) => void) {
         const mutation = this.undoStack.pop();
         if (mutation) {
             callback(mutation);
@@ -63,7 +63,7 @@ export class AtomicOperationHistory {
     /**
      * 重放
      */
-    public redo(callback: (mutation: IMutation) => void) {
+    public redo(callback: (mutation: IOperationMutation) => void) {
         const mutation = this.redoStack.pop();
         if (mutation) {
             callback(mutation);
@@ -86,6 +86,13 @@ export class AtomicOperationHistory {
         } finally {
             this.endChange();
         }
+    }
+
+    /**
+     * Subscribe the mutation change
+     */
+    public onMutationChange(cb: (mutation: IOperationMutation) => void) {
+        this.mutationQueue.forEach(cb);
     }
 }
 

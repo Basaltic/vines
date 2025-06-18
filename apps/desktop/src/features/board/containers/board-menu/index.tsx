@@ -1,10 +1,8 @@
-import { useBoard } from '../../board.setup';
+import { cardBoardEditor } from '../../board';
 
 export function BoardMenu() {
-    const board = useBoard();
-
     const add = () => {
-        board.commands.insertNode('heading', {});
+        cardBoardEditor.commands.insertNode('heading', {});
     };
 
     return (

@@ -3,6 +3,7 @@
     "display": "Default",
     "compilerOptions": {
         "moduleResolution": "node",
+        "resolveJsonModule": true,
 
         "strict": true,
         "verbatimModuleSyntax": false,
@@ -15,11 +16,11 @@
         "noPropertyAccessFromIndexSignature": false,
         "noUncheckedIndexedAccess": false,
         "skipLibCheck": true,
-        "strictNullChecks": false,
+        "strictNullChecks": true,
         "noImplicitAny": false,
         "esModuleInterop": true,
 
-        "lib": ["ESNext", "DOM"],
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
         "target": "ESNext",
         "useDefineForClassFields": false,
         "declaration": true,

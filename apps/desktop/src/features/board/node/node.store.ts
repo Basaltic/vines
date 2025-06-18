@@ -1,5 +1,5 @@
 import { createStore } from '@viness/store';
-import type { INode, INodeLocation } from './node';
+import type { INode, INodeLocation } from './node.interface';
 import { createStatePersisiStorage } from './node-persist/storage';
 
 export type NodeState = INode & {

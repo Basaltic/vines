@@ -1,9 +1,9 @@
 import { createRoute } from '@tanstack/react-router';
 import { FirstUseSetupPage } from './page';
-import { rootRoute } from '@/app/router/app-root-route';
+import { ROOT_ROUTE } from '@/app/router/app-root-route';
 
 export const firstUseSetupPageRoute = createRoute({
     path: '/first-use-setup',
     component: FirstUseSetupPage,
-    getParentRoute: () => rootRoute,
+    getParentRoute: () => ROOT_ROUTE,
 });

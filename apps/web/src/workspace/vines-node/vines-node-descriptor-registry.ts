@@ -1,4 +1,4 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import { noteNodeDescriptor } from '../containers/vines-board-canvas/elements/note';
 import { VinesNodeDescriptor } from './vines-node-descriptor.types';
 

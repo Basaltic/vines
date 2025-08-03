@@ -38,7 +38,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': '/src',
-            '@viness/ui': path.resolve(__dirname, '../../packages/ui/src'),
+            '@vines/ui': path.resolve(__dirname, '../../packages/ui/src'),
         },
     },
     tools: {},

@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from '@tanstack/react-router';
-import { Button } from '@viness/ui/components/button';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@viness/ui/components/form';
-import { Input } from '@viness/ui/components/input';
+import { Button } from '@vines/ui/components/button';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@vines/ui/components/form';
+import { Input } from '@vines/ui/components/input';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useAppUseCases } from '@/backend/usecase.hook';

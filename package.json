@@ -18,7 +18,7 @@
         "docs:preview": "turbo run docs:preview"
     },
     "devDependencies": {
-        "@viness/config": "workspace:*",
+        "@vines/config": "workspace:*",
         "@changesets/cli": "catalog:",
         "@biomejs/biome": "catalog:",
         "turbo": "catalog:"

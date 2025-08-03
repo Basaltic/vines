@@ -1,17 +1,17 @@
-# @viness/di
+# @vines/di
 
 A lightweight di framework base on vscode instantiation.
 
 # Installation
 
 ```bash
-npm install --save @viness/core
+npm install --save @vines/core
 ```
 
 # Get Start
 
 ```ts
-import { Container, createDecorator } from '@viness/core'
+import { Container, createDecorator } from '@vines/core'
 
 const container = new Container();
 

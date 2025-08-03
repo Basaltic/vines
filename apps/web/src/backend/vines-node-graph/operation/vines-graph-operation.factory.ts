@@ -1,4 +1,4 @@
-import type { Patch } from '@viness/store';
+import type { Patch } from '@vines/store';
 import { nanoid } from 'nanoid';
 import type { IVinesNode } from '../../../workspace/vines-node/vines-node.interface';
 import {

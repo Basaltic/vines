@@ -1,4 +1,4 @@
-import { token } from '@viness/core';
+import { token } from '@vines/core';
 import { IResponse } from './common/response';
 import { VinesNodeEntity } from './vines-node-graph/vines-node.do';
 import { WorkspaceEntity } from './workspace/workspace.do';

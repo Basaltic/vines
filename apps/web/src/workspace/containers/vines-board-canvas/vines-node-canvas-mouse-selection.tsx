@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import { memo, useCallback } from 'react';
 import { ElementDomCache } from '@/workspace/common/cache/element-dom-cache';
 import { useCommands } from '@/workspace/vines-node/use-commands';

@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import type React from 'react';
 import { useEffect } from 'react';
 import { ElementDomCache } from '@/workspace/common/cache/element-dom-cache';

@@ -1,4 +1,4 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import { Dexie, Table } from 'dexie';
 import { VinesNodeEntity } from '../vines-node-graph/vines-node.do';
 import { WorkspaceEntity } from '../workspace/workspace.do';

@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import { useEffect } from 'react';
 import { VinesBoardEditorCommands } from './vines-board-commands';
 

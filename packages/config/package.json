@@ -1,8 +1,8 @@
 {
-    "name": "@viness/config",
+    "name": "@vines/config",
     "version": "0.0.1",
     "private": true,
-    "license": "MIT",  
+    "license": "MIT",
     "devDependencies": {},
     "publishConfig": {
         "access": "public",

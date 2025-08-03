@@ -1,5 +1,5 @@
 {
-  "extends": "@viness/config/react-library.json",
+  "extends": "@vines/config/react-library.json",
   "include": ["src"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {

@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import { useMemo } from 'react';
 import { VinesNodeDescriptorRegistry } from './vines-node-descriptor-registry';
 

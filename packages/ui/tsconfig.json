@@ -1,9 +1,9 @@
 {
-  "extends": "@viness/config/react-library.json",
+  "extends": "@vines/config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@viness/ui/*": ["./src/*"]
+      "@vines/ui/*": ["./src/*"]
     }
   },
   "include": ["."],

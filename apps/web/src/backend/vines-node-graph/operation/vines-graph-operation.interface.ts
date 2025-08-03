@@ -1,4 +1,4 @@
-import type { Patch } from '@viness/store';
+import type { Patch } from '@vines/store';
 import { VinesNodeBaseLocationEntity } from '@/backend/vines-node-graph/vines-node.do';
 import type { IVinesNode } from '../../../workspace/vines-node/vines-node.interface';
 

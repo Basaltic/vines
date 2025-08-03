@@ -1,5 +1,5 @@
-import { Injectable } from '@viness/core';
-import { Store } from '@viness/store';
+import { Injectable } from '@vines/core';
+import { Store } from '@vines/store';
 import { ID } from '@/backend/common/id.service';
 import { VinesNode } from './vines-node';
 import { IVinesNode } from './vines-node.interface';
@@ -63,8 +63,6 @@ export class VinesNodeGraph extends Store<VinesNodeGraphCommonState> {
             });
         });
     }
-
-
 
     /**
      *

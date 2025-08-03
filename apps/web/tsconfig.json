@@ -1,5 +1,5 @@
 {
-  "extends": "@viness/config/web.json",
+  "extends": "@vines/config/web.json",
   "compilerOptions": {
 
     "module": "ESNext",
@@ -15,7 +15,7 @@
 
     "paths": {
       "@/*": ["./src/*"],
-      "@viness/ui/*": ["../../packages/ui/src/*"]
+      "@vines/ui/*": ["../../packages/ui/src/*"]
     },
     "baseUrl": ".",
   },

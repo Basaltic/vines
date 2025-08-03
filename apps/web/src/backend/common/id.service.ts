@@ -1,5 +1,5 @@
-import { Injectable } from '@viness/core';
-import { generateKeyBetween } from '@viness/utils';
+import { Injectable } from '@vines/core';
+import { generateKeyBetween } from '@vines/utils';
 import { customAlphabet } from 'nanoid';
 
 const DIGITS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';

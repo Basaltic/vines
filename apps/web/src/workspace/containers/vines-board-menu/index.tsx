@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import { VinesNodeDescriptorRegistry } from '@/workspace/vines-node/vines-node-descriptor-registry';
 
 /**

@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import { AppUseCaseToken } from './usecase.interface';
 
 export const useAppUseCases = () => {

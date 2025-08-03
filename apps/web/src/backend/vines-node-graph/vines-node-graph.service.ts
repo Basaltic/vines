@@ -1,4 +1,4 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import { VinesWebDatabase } from '../database/web-db';
 import { VinesNodeEntity } from './vines-node.do';
 import { IVinesNodeGraphService } from './vines-node-graph.interface';

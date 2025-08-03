@@ -1,4 +1,4 @@
-import '@viness/ui/styles/globals.css';
+import '@vines/ui/styles/globals.css';
 import './index.css';
 import 'overlayscrollbars/overlayscrollbars.css';
 

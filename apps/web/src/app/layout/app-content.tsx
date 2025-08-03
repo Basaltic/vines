@@ -1,5 +1,5 @@
 import { Outlet } from '@tanstack/react-router';
-import { cn } from '@viness/ui/lib/utils';
+import { cn } from '@vines/ui/lib/utils';
 import { Suspense } from 'react';
 import { PageSuspenseFallback } from './app-suspense-fallback';
 

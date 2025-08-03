@@ -1,5 +1,5 @@
 {
-    "name": "@viness/web",
+    "name": "@vines/web",
     "version": "0.3.4",
     "private": true,
     "type": "module",
@@ -12,11 +12,11 @@
         "tauri:dev": "tauri dev"
     },
     "dependencies": {
-        "@viness/ui": "workspace:*",
-        "@viness/core": "workspace:*",
-        "@viness/store": "workspace:*",
-        "@viness/config": "workspace:*",
-        "@viness/utils": "workspace:*",
+        "@vines/ui": "workspace:*",
+        "@vines/core": "workspace:*",
+        "@vines/store": "workspace:*",
+        "@vines/config": "workspace:*",
+        "@vines/utils": "workspace:*",
 
         "@tanstack/react-router": "catalog:",
 

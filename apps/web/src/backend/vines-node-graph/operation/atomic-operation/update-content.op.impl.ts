@@ -1,6 +1,6 @@
-import { applyPatches } from '@viness/store';
-import { VinesNodeGraphService } from '@/backend/vines-node-graph/vines-node-graph.service';
+import { applyPatches } from '@vines/store';
 import { IUpdateContentOp } from '@/backend/vines-node-graph/operation/vines-graph-operation.interface';
+import { VinesNodeGraphService } from '@/backend/vines-node-graph/vines-node-graph.service';
 import { IOperation } from '../operation.interface';
 
 /**

@@ -1,7 +1,7 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import { IdentifierService } from '@/backend/common/id.service';
-import { VinesNodeGraphService } from '@/backend/vines-node-graph/vines-node-graph.service';
 import { IInsertOp, OpType } from '@/backend/vines-node-graph/operation/vines-graph-operation.interface';
+import { VinesNodeGraphService } from '@/backend/vines-node-graph/vines-node-graph.service';
 import { IOperation, IOperationFactory } from '../operation.interface';
 import { InsertOperation } from './insert.op.impl';
 

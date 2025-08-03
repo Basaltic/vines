@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import type { ChangeEvent } from 'react';
 import { hashFileIncrementally } from '../../common/utils/hash';
 import { getImageInfo } from '../../common/utils/image';

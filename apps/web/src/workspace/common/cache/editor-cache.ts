@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import type { Cache } from './cache.interface';
 
 export interface IEditorCache extends Cache<string, Editor> {}

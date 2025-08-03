@@ -1,5 +1,5 @@
-import { applyPatches, Patch, produceWithPatches, Store } from '@viness/store';
-import { safelyParseJSON } from '@viness/utils';
+import { applyPatches, Patch, produceWithPatches, Store } from '@vines/store';
+import { safelyParseJSON } from '@vines/utils';
 import { VinesNodeEntity } from '@/backend/vines-node-graph/vines-node.do';
 import { IVinesNode } from './vines-node.interface';
 import { IVinesNodeContent } from './vines-node-content';
@@ -125,7 +125,7 @@ export class VinesNode<C extends IVinesNodeContent = IVinesNodeContent> extends 
     }
 
     static create(inode: IVinesNode) {
-        const node = new VinesNode({...inode, children: []});
+        const node = new VinesNode({ ...inode, children: [] });
         return node;
     }
 

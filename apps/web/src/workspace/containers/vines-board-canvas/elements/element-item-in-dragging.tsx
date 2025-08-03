@@ -1,4 +1,4 @@
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import { memo } from 'react';
 import type { XYCoord } from 'react-dnd';
 import { ElementDomCache } from '@/workspace/common/cache/element-dom-cache';

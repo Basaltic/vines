@@ -1,13 +1,13 @@
-import { Injectable } from '@viness/core';
-import { produceWithPatches } from '@viness/store';
+import { Injectable } from '@vines/core';
+import { produceWithPatches } from '@vines/store';
+import { cloneDeep } from 'lodash-es';
 import { OpFactory } from '../../backend/vines-node-graph/operation/vines-graph-operation.factory';
+import { OpLocation } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
 import { VinesBoardOpHistory } from './vines-board-operation-history';
 import { VinesNode } from './vines-node';
 import type { IVinesNode } from './vines-node.interface';
 import type { IVinesNodeContent } from './vines-node-content';
 import { VinesNodeGraph } from './vines-node-graph';
-import { OpLocation } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
-import { cloneDeep } from 'lodash-es';
 
 /**
  * 节点图的原子操作，这些操作会被记录到历史栈中
@@ -24,8 +24,6 @@ export class VinesNodeGraphAtomicOperations {
 
         const noId = !node.id;
         if (noId) return;
-
-     
 
         if (to.prev) {
             const prevNode = this.vinesNodeGraph.getNode(to.prev);
@@ -44,7 +42,7 @@ export class VinesNodeGraphAtomicOperations {
 
             aboveNode?.appendChildBefore(to.next, node.id);
         } else {
-            node.above = to.above
+            node.above = to.above;
 
             const aboveNode = this.vinesNodeGraph.getNode(node.above);
             if (!aboveNode) return;

@@ -1,4 +1,4 @@
-import { createModule } from '@viness/core';
+import { createModule } from '@vines/core';
 
 import { IdentifierService } from './common/id.service';
 import { VinesWebDatabase } from './database/web-db';

@@ -1,5 +1,5 @@
 import { RouterProvider } from '@tanstack/react-router';
-import { VinesAppProvider } from '@viness/core';
+import { VinesAppProvider } from '@vines/core';
 import { appModule } from './app.module';
 import { router } from './router/app-router';
 

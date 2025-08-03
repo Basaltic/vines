@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@viness/core';
+import { Inject, Injectable } from '@vines/core';
 import { IdentifierService } from '@/backend/common/id.service';
 import type { IAppUseCases } from '@/backend/usecase.interface';
 import { AppUseCaseToken } from '@/backend/usecase.interface';

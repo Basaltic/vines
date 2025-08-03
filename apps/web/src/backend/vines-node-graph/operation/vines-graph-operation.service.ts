@@ -1,4 +1,4 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import { IOp } from '@/backend/vines-node-graph/operation/vines-graph-operation.interface';
 import { DeleteOperationFactory } from './atomic-operation/delete.op.factory';
 import { InsertOperationFactory } from './atomic-operation/insert.op.factory';

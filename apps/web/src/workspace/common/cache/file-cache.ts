@@ -1,4 +1,4 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import type { Cache } from './cache.interface';
 export interface IFileCache extends Cache<string, File> {}
 

@@ -1,5 +1,5 @@
 import { type Content, Editor, type JSONContent } from '@tiptap/core';
-import { useInject } from '@viness/core';
+import { useInject } from '@vines/core';
 import cs from 'classnames';
 import { debounce, isString } from 'lodash-es';
 import type React from 'react';

@@ -1,10 +1,8 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import type { IMutation, IOpGroup } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
 import { EventEmitter } from '../common/event-emitter';
 
-
-export const VINES_BOARD_OPERATION_MUTATION_ADDED = 'vines-board-mutation-added'
-
+export const VINES_BOARD_OPERATION_MUTATION_ADDED = 'vines-board-mutation-added';
 
 export interface IOpHistory {
     mutationQueue: IMutation[];
@@ -15,7 +13,6 @@ export interface IOpHistory {
     redo(callback: (mutation: IMutation) => void): void;
     transact(cb: () => void): void;
 }
-
 
 /**
  * 节点画布树的操作历史
@@ -64,7 +61,7 @@ export class VinesBoardOpHistory implements IOpHistory {
             this.mutation = [];
         }
 
-        this.events.emit(VINES_BOARD_OPERATION_MUTATION_ADDED)
+        this.events.emit(VINES_BOARD_OPERATION_MUTATION_ADDED);
     }
 
     /**

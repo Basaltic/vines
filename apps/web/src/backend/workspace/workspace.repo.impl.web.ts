@@ -1,4 +1,4 @@
-import { Injectable } from '@viness/core';
+import { Injectable } from '@vines/core';
 import { IdentifierService } from '../common/id.service';
 import { IRepo } from '../common/repo-base.interface';
 import { VinesWebDatabase } from '../database/web-db';

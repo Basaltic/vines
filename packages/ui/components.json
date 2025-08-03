@@ -11,10 +11,10 @@
     },
     "iconLibrary": "lucide",
     "aliases": {
-        "components": "@viness/ui/components",
-        "utils": "@viness/ui/lib/utils",
-        "hooks": "@viness/ui/hooks",
-        "lib": "@viness/ui/lib",
-        "ui": "@viness/ui/components"
+        "components": "@vines/ui/components",
+        "utils": "@vines/ui/lib/utils",
+        "hooks": "@vines/ui/hooks",
+        "lib": "@vines/ui/lib",
+        "ui": "@vines/ui/components"
     }
 }

@@ -1,4 +1,4 @@
-import { token } from '@viness/core';
+import { token } from '@vines/core';
 import { IRepo } from '../common/repo-base.interface';
 import { WorkspaceEntity } from './workspace.do';
 

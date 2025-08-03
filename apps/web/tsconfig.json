@@ -1,0 +1,24 @@
+{
+  "extends": "@viness/config/web.json",
+  "compilerOptions": {
+
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    "jsx": "react-jsx",
+
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "useDefineForClassFields": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "paths": {
+      "@/*": ["./src/*"],
+      "@viness/ui/*": ["../../packages/ui/src/*"]
+    },
+    "baseUrl": ".",
+  },
+  "include": ["src", "../../packages/ui/src"],
+  "files": ["./src/missing-types.d.ts"]
+}

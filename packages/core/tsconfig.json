@@ -1,0 +1,9 @@
+{
+  "extends": "@viness/config/react-library.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "types": ["node"],
+    "experimentalDecorators": true,
+  }
+}

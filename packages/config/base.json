@@ -2,19 +2,37 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "display": "Default",
     "compilerOptions": {
-        "composite": false,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+
+        "strict": true,
+        "verbatimModuleSyntax": false,
+        "exactOptionalPropertyTypes": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noPropertyAccessFromIndexSignature": false,
+        "noUncheckedIndexedAccess": false,
+        "skipLibCheck": true,
+        "strictNullChecks": true,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
+        "target": "ESNext",
+        "useDefineForClassFields": false,
         "declaration": true,
         "declarationMap": true,
-        "esModuleInterop": true,
+        "sourceMap": true,
+        "importsNotUsedAsValues": "remove",
+
         "forceConsistentCasingInFileNames": true,
-        "inlineSources": false,
+        "allowSyntheticDefaultImports": true,
         "isolatedModules": true,
-        "moduleResolution": "node",
-        "noUnusedLocals": false,
-        "noUnusedParameters": false,
         "preserveWatchOutput": true,
-        "skipLibCheck": true,
-        "strict": true
+        "inlineSources": false
     },
     "exclude": ["node_modules"]
 }

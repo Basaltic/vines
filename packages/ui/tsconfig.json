@@ -1,12 +1,11 @@
 {
   "extends": "@viness/config/react-library.json",
-  "include": ["src", "src/components", "src/lib", "tsup.config.ts"],
-  "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ui/*": ["./src/*"],
-    },
-    "types": ["node"],
-  }
+      "@viness/ui/*": ["./src/*"]
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist"]
 }

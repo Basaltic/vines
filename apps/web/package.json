@@ -1,0 +1,110 @@
+{
+    "name": "@viness/web",
+    "version": "0.3.4",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "start": "npm run dev",
+        "dev": "rsbuild dev",
+        "build": "rsbuild build",
+        "preview": "rsbuild preview",
+        "tauri": "tauri",
+        "tauri:dev": "tauri dev"
+    },
+    "dependencies": {
+        "@viness/ui": "workspace:*",
+        "@viness/core": "workspace:*",
+        "@viness/store": "workspace:*",
+        "@viness/config": "workspace:*",
+        "@viness/utils": "workspace:*",
+
+        "@tanstack/react-router": "catalog:",
+
+        "i18next": "catalog:",
+        "i18next-browser-languagedetector": "catalog:",
+        "react-i18next": "catalog:",
+
+        "@heroicons/react": "catalog:",
+
+        "@tiptap/core": "catalog:",
+        "@tiptap/extension-document": "catalog:",
+        "@tiptap/extension-history": "catalog:",
+        "@tiptap/extension-paragraph": "catalog:",
+        "@tiptap/extension-placeholder": "catalog:",
+        "@tiptap/extension-task-item": "catalog:",
+        "@tiptap/extension-task-list": "catalog:",
+        "@tiptap/extension-text": "catalog:",
+        "@tiptap/starter-kit": "catalog:",
+
+        "ahooks": "catalog:",
+        "axios": "catalog:",
+        "classnames": "catalog:",
+        "clipboard": "catalog:",
+        "colorthief": "catalog:",
+        "dexie": "4.0.11",
+        "dayjs": "catalog:",
+        "immer": "catalog:",
+        "js-cookie": "catalog:",
+        "katex": "catalog:",
+        "lodash-es": "catalog:",
+        "nanoid": "catalog:",
+        "overlayscrollbars": "catalog:",
+        "overlayscrollbars-react": "catalog:",
+        "eventemitter3": "catalog:",
+        "framer-motion": "catalog:",
+        "spark-md5": "catalog:",
+        "zod": "catalog:",
+        "@hookform/resolvers": "catalog:",
+
+        "react": "catalog:",
+        "react-dnd": "catalog:",
+        "react-dnd-html5-backend": "catalog:",
+        "react-dom": "catalog:",
+        "react-hook-form": "catalog:",
+        "react-hotkeys-hook": "catalog:",
+        "lucide-react": "catalog:"
+    },
+    "devDependencies": {
+        "@tauri-apps/cli": "catalog:",
+
+        "@tanstack/react-router-devtools": "catalog:",
+        "@testing-library/react": "catalog:",
+
+        "@types/clipboard": "catalog:",
+        "@types/js-cookie": "catalog:",
+        "@types/katex": "catalog:",
+        "@types/lodash-es": "catalog:",
+        "@types/node": "catalog:",
+        "@types/overlayscrollbars": "catalog:",
+        "@types/react": "catalog:",
+        "@types/react-dom": "catalog:",
+        "@types/spark-md5": "catalog:",
+
+        "@rsbuild/core": "catalog:",
+        "@rsbuild/plugin-react": "catalog:",
+        "@rsbuild/plugin-sass": "catalog:",
+
+        "@tailwindcss/postcss": "catalog:",
+        "tailwindcss": "catalog:",
+
+        "typescript": "catalog:",
+        "vitest": "catalog:",
+        "internal-ip": "catalog:"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all",
+            "not IE 11"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

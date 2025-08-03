@@ -1,31 +1,23 @@
+import { applyPatches, type Patch, produce, produceWithPatches } from 'immer';
 import { create } from 'zustand';
-import { PersistOptions, devtools } from 'zustand/middleware';
-import { produce, produceWithPatches, applyPatches, Patch } from 'immer';
-import { createTrackedSelector } from 'react-tracked';
-import { persist } from 'zustand/middleware';
-import { ID } from './types';
-
-export type PersistOption<T> = Omit<PersistOptions<T>, 'getStorage' | 'serialize' | 'deserialize'>;
-
-export type Persist<T> = PersistOptions<T> | ((id: ID) => PersistOptions<T>);
+import { devtools, type PersistOptions, persist } from 'zustand/middleware';
+import { useShallow } from 'zustand/react/shallow';
 
 export interface StateOption<StateValue extends object> {
     /**
      * state name，it's mainly used to
      */
     name?: string;
-    /**
-     * wether the state is initialized lazily
-     */
-    lazy?: boolean;
+
     /**
      * default state value
      */
     defaultState: StateValue;
+
     /**
      * persist options
      */
-    persist?: Persist<StateValue>;
+    persist?: PersistOptions<StateValue>;
 }
 
 export type UIState<StateValue extends object> = ReturnType<typeof createState<StateValue>>;
@@ -43,50 +35,75 @@ export function createState<StateValue extends object>(options?: StateOption<Sta
     if (process.env.NODE_ENV === 'development') {
         creator = devtools(() => defaultState, { name });
     }
+
     if (options?.persist) {
         creator = persist(creator, options.persist);
     }
 
-    const innerApi = create<StateValue>()(creator);
+    const useStoreHook = create<StateValue>()(creator);
+
+    /**
+     * alias `setState` method
+     */
+    const useStoreHookSetState = useStoreHook.setState as (patch, replace?, devtoolsUsed?) => any;
+
+    const context = { currentActionKey: '' };
 
     return {
         name,
-        /**
-         * defulat state value which is passed from params
-         */
         defaultState,
+        context,
         /**
-         * return a auto tracked state object
+         * a hook return all the state value and re-render when the state has any changed
+         */
+        use: () => useStoreHook(),
+
+        /**
+         * a hook return selected state values and re-render when the selected values are changed
          *
+         * @param selector
          * @returns
          */
-        use: () => createTrackedSelector(innerApi)() as StateValue,
+        useSelect: <V>(selector: (state: StateValue) => V) => useStoreHook(useShallow(selector)),
+
+        /**
+         * select state values
+         *
+         * @param select
+         * @returns
+         */
+        select: <V>(selector: (state: StateValue) => V) => {
+            const s = useStoreHook.getState();
+
+            return selector(s);
+        },
+
         /**
          * get the current state
          */
-        get: () => innerApi.getState(),
+        get: () => useStoreHook.getState(),
+
         /**
          * change state
          *
          * @param updater
          * @param replace
          */
-        set: (
-            updater: StateValue | Partial<StateValue> | ((state: StateValue) => StateValue | Partial<StateValue> | void),
-            replace?: boolean | undefined,
-        ) => {
+        set: (updater: StateValue | Partial<StateValue> | ((draftState: StateValue) => any), replace?: boolean | undefined) => {
             if (typeof updater === 'function' && !replace) {
-                innerApi.setState(produce(updater) as any, replace);
+                useStoreHookSetState(produce(updater) as any, replace, context.currentActionKey);
             } else {
-                innerApi.setState(updater as any, replace);
+                useStoreHookSetState(updater as any, replace, context.currentActionKey);
             }
         },
+
         /**
          * subscribe the modification of the state in this state
          */
         subscribe(listener: (state: StateValue, prevState: StateValue) => void): () => void {
-            return innerApi.subscribe(listener);
+            return useStoreHook.subscribe(listener);
         },
+
         /**
          * change the state and return the patches
          *
@@ -94,10 +111,12 @@ export function createState<StateValue extends object>(options?: StateOption<Sta
          * @param replace
          * @returns [patches, inverse patches]
          */
-        setWithPatches(updater: (state: StateValue) => StateValue | void): [Patch[], Patch[]] {
+        setWithPatches(updater: (state: StateValue) => StateValue | undefined): [Patch[], Patch[]] {
             const state = this.get();
-            const [nextState, patches, inversePatches] = produceWithPatches(state, updater);
-            innerApi.setState(nextState);
+            const [nextState, patches, inversePatches] = produceWithPatches(state, updater) as any;
+
+            useStoreHookSetState(nextState);
+
             return [patches, inversePatches];
         },
 
@@ -108,7 +127,8 @@ export function createState<StateValue extends object>(options?: StateOption<Sta
          */
         applyPatches(patches: Patch[]) {
             const updater = (s: StateValue) => applyPatches(s, patches);
-            innerApi.setState(updater);
+
+            useStoreHookSetState(updater);
         },
     };
 }
@@ -125,7 +145,6 @@ export function createLazyState<StateValue extends object>(option: StateOption<S
                 instance = createState<StateValue>(option);
             }
 
-            // @ts-ignore
             return instance[key];
         },
     });

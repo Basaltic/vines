@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@vines/core';
 import { AppUseCasesInWeb } from '@/backend/usecase.impl.web';
 import { AppUseCaseToken } from '@/backend/usecase.interface';
 import { IOp } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
-import { EventEmitter } from '../common/event-emitter';
+import { EventEmitter } from '../../common/event-emitter';
 import { VINES_BOARD_OPERATION_MUTATION_ADDED, VinesBoardOpHistory } from './vines-board-operation-history';
 
 @Injectable()

@@ -1,8 +1,9 @@
-import { useParams } from '@tanstack/react-router';
+import { useMatch, useParams } from '@tanstack/react-router';
 import { useRequest } from 'ahooks';
 import type React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { router } from '@/app/router/app-router';
 import { PageLoading } from '@/common/components/page-loading';
 import { DRAWER_WIDTH } from '@/common/constants';
 import { VinesBoardCustomDragLayer } from './containers/vines-board-canvas/vines-board-custom-drag-layer';
@@ -23,9 +24,9 @@ function VinesBoardContainer(props: { children: React.ReactNode }) {
 }
 
 export function VinesBoardPage() {
-    const commands = useCommands();
-
     useBoardOperationSyncer();
+
+    const commands = useCommands();
 
     const { workspaceId } = useParams({ from: '/workspace/$workspaceId' });
 

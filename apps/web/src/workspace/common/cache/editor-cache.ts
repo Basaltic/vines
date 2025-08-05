@@ -1,6 +1,6 @@
 import type { Editor } from '@tiptap/core';
-import { Injectable } from '@vines/core';
-import type { Cache } from './cache.interface';
+import { Injectable, useInject } from '@vines/core';
+import type { Cache } from '../../../common/cache.interface';
 
 export interface IEditorCache extends Cache<string, Editor> {}
 
@@ -21,3 +21,7 @@ export class EditorCache implements IEditorCache {
         return this.map.delete(k);
     }
 }
+
+export const useEditorCache = () => {
+    return useInject(EditorCache);
+};

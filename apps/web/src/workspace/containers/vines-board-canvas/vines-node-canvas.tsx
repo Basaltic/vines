@@ -19,8 +19,6 @@ export function VinesNodeCanvas() {
 
     const childNodeIds = displayBoardNode?.state$.useSelect((n) => n.children);
 
-    console.log('displaying board node ==>', displayBoardNode, childNodeIds);
-
     useElementDropToBoard(scrollContainerRef, scrollContentRef, displayBoardNode?.id);
 
     useVinesBoardHotKeys();

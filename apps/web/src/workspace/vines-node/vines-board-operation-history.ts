@@ -1,6 +1,6 @@
 import { Injectable } from '@vines/core';
 import type { IMutation, IOpGroup } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
-import { EventEmitter } from '../common/event-emitter';
+import { EventEmitter } from '../../common/event-emitter';
 
 export const VINES_BOARD_OPERATION_MUTATION_ADDED = 'vines-board-mutation-added';
 

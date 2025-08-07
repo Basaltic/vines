@@ -1,5 +1,4 @@
 import type React from 'react';
-import type { VinesNodeType } from './vines-node.interface';
 import type { IVinesNodeContent } from './vines-node-content';
 
 /**
@@ -15,7 +14,7 @@ export type VinesNodeDragItemFromBoard = {
      */
     isSelected: boolean;
     isNew?: boolean;
-    type: VinesNodeType;
+    type: string;
 };
 
 /**
@@ -39,7 +38,7 @@ export type VinesNodeDragItemFromMenu = {
     /**
      * 需要新建的节点的类型
      */
-    type: VinesNodeType;
+    type: string;
     isNew?: boolean;
 };
 
@@ -60,7 +59,7 @@ export type VinesNodeDescriptor<C extends IVinesNodeContent = IVinesNodeContent>
     /**
      * 元素的类型
      */
-    type: VinesNodeType;
+    type: string;
 
     /**
      * 默认内容
@@ -104,7 +103,7 @@ export type VinesNodeViewProps = {
     /**
      * 类型
      */
-    type?: VinesNodeType;
+    type?: string;
     /**
      * 视图展示在何处
      */

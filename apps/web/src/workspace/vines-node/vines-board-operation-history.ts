@@ -97,6 +97,7 @@ export class VinesBoardOpHistory implements IOpHistory {
             cb && cb();
         } catch (e) {
             // empty
+            console.error('Transaction failed', e);
         } finally {
             this.endChange();
         }

@@ -40,6 +40,8 @@ export const NoteElementViewInBoard = memo((props: VinesNodeViewProps) => {
      */
     const debouncedContentUpdate = useCallback(
         debounce((editor) => {
+            if (!editor) return;
+            console.log('debouncedContentUpdate', { id, content: editor.getJSON() });
             commands.updateNodeContent({ nodeId: uvaNode.id, content: { textContent: editor.getJSON() } });
         }, 500),
         [],
@@ -138,6 +140,8 @@ export const NoteElementViewInDragging = memo((props: VinesNodeViewProps) => {
 
     const className = cs('relative bg-white min-h-12');
     const editorClassName = cs('prose p-2', isSelected ? '' : 'cursor-default');
+
+    console.log('NoteElementViewInDragging', { id, type, isSelected, content: vinesNode?.content });
 
     return (
         <div className={className} style={{ width: 300 }}>

@@ -9,8 +9,8 @@ export function VinesElementMenu() {
     const elements = elementRegistry.getElementList();
 
     return (
-        <div className="fixed top-0 left-0 h-full flex items-center">
-            <div className="bg-white shadow-md p-2">
+        <div className="absolute top-10 left-2 w-10 h-full flex items-center z-50">
+            <div className="bg-white shadow-md rounded-md p-1">
                 {elements.map((e) => (
                     <e.menuView key={e.type} />
                 ))}

@@ -29,11 +29,11 @@ export class VinesBoardOperationSyncer {
      * 同步数据
      */
     private async syncOperations() {
-        console.log('syncing ==> ', this.operationHistory.mutationQueue);
-
         if (this.syncing) {
             return;
         }
+
+        console.log('syncing ==> ', this.operationHistory.mutationQueue);
 
         try {
             this.syncing = true;

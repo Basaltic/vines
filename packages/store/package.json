@@ -18,6 +18,7 @@
     },
 
     "dependencies": {
+        "@vines/core": "workspace:*",
         "immer": "catalog:",
         "radash": "catalog:",
         "react-tracked": "catalog:",

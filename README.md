@@ -1,5 +1,5 @@
 # Vines 蔓记
 
-a free card-based note-taking tool for everyone.
+a card-based creativity & knowledge management tool for you.
+you can use it just in your browser as a temparilly note-taking tool at https://vinesnote.vercel.app.
 
-* you can use it just in your browser as a temparilly. open at xx 

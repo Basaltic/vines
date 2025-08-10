@@ -49,12 +49,3 @@ export function VinesNodeCanvas() {
         </>
     );
 }
-
-/**
- * 全局取消使用tab在元素间切换
- */
-document.onkeydown = (t) => {
-    if (t.key === 'Tab') {
-        return false;
-    }
-};

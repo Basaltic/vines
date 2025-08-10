@@ -120,6 +120,8 @@ export class VinesNodeGraphAtomicOperations {
     update<T extends IVinesNodeContent>(payload: { nodeId: string | null; content: Partial<T> | any }) {
         const { nodeId, content } = payload;
 
+        console.log('update node content', { nodeId, content });
+
         if (!nodeId) return;
 
         const nodeToUpdate = this.vinesNodeGraph.getNode(nodeId);

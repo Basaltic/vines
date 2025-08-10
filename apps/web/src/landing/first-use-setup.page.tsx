@@ -27,7 +27,7 @@ export const FirstUseSetupPage = () => {
         const res = await appUseCases.firstUseSetup({ name: data.workspaceName });
 
         if (res.success) {
-            navigate({ from: '/first-use-setup', to: `/workspace/${res.data?.id}` });
+            navigate({ from: '/first-use-setup', to: `/workspace/${res.data?.id}/${res.data?.displayingNodeId}` });
         }
     };
 

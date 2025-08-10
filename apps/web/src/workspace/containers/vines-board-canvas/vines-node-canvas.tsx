@@ -10,7 +10,7 @@ import { VinesNodeCanvasMouseSelection } from './vines-node-canvas-mouse-selecti
 /**
  * 画布
  */
-export function VinesNodeCanvas() {
+export function CardCanvas() {
     const scrollContentRef = useRef<HTMLDivElement>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 

@@ -55,8 +55,6 @@ export const ElementItemInBoard = memo((props: { nodeId: string; isResizable: bo
         return null;
     }
 
-    console.log('ElementItemInBoard', { nodeId, isNodeSelected, isDragging, where });
-
     const containerClassName = cs('absolute', isDragging ? 'opacity-0' : 'opacity-100', isNodeSelected ? 'z-40' : '');
     const draggableWrapperClassName = cs('relative bg-white', isNodeSelected ? 'ring-2 ring-slate-600 z-50' : 'ring-1 ring-slate-200');
 

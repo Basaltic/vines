@@ -4,7 +4,7 @@ import { VinesNodeDescriptorRegistry } from '@/workspace/vines-node/vines-node-d
 /**
  * 侧边工具栏
  */
-export function VinesElementMenu() {
+export function CanvasSideMenu() {
     const elementRegistry = useInject(VinesNodeDescriptorRegistry);
     const elements = elementRegistry.getElementList();
 

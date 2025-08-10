@@ -19,7 +19,6 @@ export class WorkspaceRepoInWeb implements IRepo<WorkspaceEntity> {
 
     async getList(where: Partial<WorkspaceEntity>) {
         const list = this.db.workspace.where(where).toArray();
-        console.log(list);
         return list;
     }
 

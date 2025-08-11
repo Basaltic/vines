@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useCurrentDisplayingVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
 import bgSvg from './assets/bg-point.svg';
-import { ElementItemInBoard } from './elements/element-item-in-board';
+import { ElementItemInBoard } from './cards/element-item-in-board';
 import useBoardCanvasScroll from './use-board-canvas-scroll';
 import useVinesBoardHotKeys from './use-board-hotkeys';
 import useElementDropToBoard from './use-element-drop-to-board';

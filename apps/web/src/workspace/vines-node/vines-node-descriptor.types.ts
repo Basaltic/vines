@@ -76,7 +76,10 @@ export type VinesNodeDescriptor<C extends IVinesNodeContent = IVinesNodeContent>
     /**
      * 元素的展示视图
      */
-    view: React.FC<VinesNodeViewProps>;
+    view: {
+        default: React.FC<VinesNodeViewProps>;
+        dragging: React.FC<VinesNodeViewProps>;
+    };
     /**
      * 创建菜单视图
      */

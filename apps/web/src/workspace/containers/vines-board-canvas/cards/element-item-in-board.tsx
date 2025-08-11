@@ -49,7 +49,7 @@ export const ElementItemInBoard = memo((props: { nodeId: string; isResizable: bo
     const { x = 0, y = 0 } = vinesNode;
 
     // 节点展示内容
-    const VinesNodeView = vinesNodeDescriptor?.view;
+    const VinesNodeView = vinesNodeDescriptor?.view?.default;
 
     if (!VinesNodeView) {
         return null;

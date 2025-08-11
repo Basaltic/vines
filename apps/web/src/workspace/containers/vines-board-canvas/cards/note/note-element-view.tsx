@@ -16,7 +16,6 @@ export const NoteElementView = (props: VinesNodeViewProps) => {
     switch (props.where) {
         case 'dragging':
             return <NoteElementViewInDragging {...props} />;
-        // case 'board':
         default:
             return <NoteElementViewInBoard {...props} />;
     }
@@ -133,8 +132,8 @@ export const NoteElementViewInDragging = memo((props: VinesNodeViewProps) => {
                 element: place,
                 extensions: exts,
                 content,
+                editable: false,
             });
-            editorCache.set(vinesNode.id, editor);
         }
     }, []);
 

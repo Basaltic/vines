@@ -16,7 +16,7 @@ export function LandingPage() {
             if (res.data && res.data.length > 0) {
                 const workspace = res.data[0];
                 if (workspace.displayingNodeId) {
-                    navigate({ from: '/', to: `/workspace/${workspace.id}` });
+                    navigate({ from: '/', to: `/workspace/${workspace.id}/${workspace.displayingNodeId}` });
                 }
                 return;
             }

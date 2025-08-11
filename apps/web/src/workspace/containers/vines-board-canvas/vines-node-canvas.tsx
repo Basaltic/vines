@@ -26,7 +26,7 @@ export function CardCanvas() {
     return (
         <>
             <div
-                id="uva-board-canvas"
+                id="vines-board-canvas"
                 className="relative w-full h-full bg-slate-200 overflow-auto"
                 ref={scrollContainerRef}
                 style={{ backgroundImage: `url(${bgSvg})` }}

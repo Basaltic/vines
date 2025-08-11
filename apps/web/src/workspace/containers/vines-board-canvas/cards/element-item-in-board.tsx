@@ -27,7 +27,7 @@ export const ElementItemInBoard = memo((props: { nodeId: string; isResizable: bo
         draggableElementRef: draggableRef,
         draggingNodeId: vinesNode.id,
         isSelected: isNodeSelected,
-        where: where || 'board',
+        where: where || 'default',
         type: vinesNode.type,
     });
 
@@ -69,7 +69,6 @@ export const ElementItemInBoard = memo((props: { nodeId: string; isResizable: bo
         >
             <div ref={draggableRef} className={draggableWrapperClassName}>
                 <VinesNodeView
-                    where={where || 'board'}
                     id={nodeId}
                     type={vinesNode.type}
                     isSelected={isNodeSelected}

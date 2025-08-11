@@ -1,4 +1,4 @@
-import { type Content, Editor, type JSONContent } from '@tiptap/core';
+import { Crepe } from '@milkdown/crepe';
 import { useInject } from '@vines/core';
 import cs from 'classnames';
 import { debounce, isString } from 'lodash-es';
@@ -10,24 +10,15 @@ import { useVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
 import type { INoteNodeContent } from '../../../../vines-node/vines-node-content';
 import type { VinesNodeViewProps } from '../../../../vines-node/vines-node-descriptor.types';
 import { ColorTopBar } from '../../components/color-top-bar';
-import { getExtensions } from './editor.config';
-
-export const NoteElementView = (props: VinesNodeViewProps) => {
-    switch (props.where) {
-        case 'dragging':
-            return <NoteElementViewInDragging {...props} />;
-        default:
-            return <NoteElementViewInBoard {...props} />;
-    }
-};
 
 /**
  * 笔记节点
  */
 export const NoteElementViewInBoard = memo((props: VinesNodeViewProps) => {
-    const { id, isSelected } = props;
+    const { id, isSelected, isDragging } = props;
 
     const editorDomRef = useRef(null);
+    const eidtorRef = useRef<Crepe | null>(null);
 
     const commands = useCommands();
     const uvaNode = useVinesNode<INoteNodeContent>(id);
@@ -50,36 +41,14 @@ export const NoteElementViewInBoard = memo((props: VinesNodeViewProps) => {
      * 编辑器初始化
      */
     useEffect(() => {
-        const place = editorDomRef.current;
-        if (place) {
-            let editor = editorCache.get(uvaNode.id);
-            let content: Content;
-            if (editor) {
-                content = editor.getJSON() as JSONContent;
-            } else {
-                const textContent = uvaNode?.content.textContent || undefined;
-                content = isString(textContent) ? JSON.parse(textContent) : textContent;
-            }
+        const editor = new Crepe({ root: editorDomRef.current, defaultValue: uvaNode.content.textContent });
 
-            const exts = getExtensions();
-            editor = new Editor({
-                element: place,
-                extensions: exts,
-                content,
-                onUpdate: ({ editor }) => {
-                    debouncedContentUpdate(editor);
-                },
-            });
-            editorCache.set(uvaNode.id, editor);
-        }
+        editor.create();
+
+        eidtorRef.current = editor;
 
         return () => {
-            const editor = editorCache.get(uvaNode.id);
-            if (editor) {
-                editor.destroy();
-            }
-
-            editorCache.del(uvaNode.id);
+            editor.destroy();
         };
     }, []);
 
@@ -93,6 +62,7 @@ export const NoteElementViewInBoard = memo((props: VinesNodeViewProps) => {
 
     const className = cs('relative bg-white min-h-12');
     const editorClassName = cs('prose p-2', isSelected ? '' : 'cursor-default');
+
     return (
         <div className={className} style={{ width: 300 }} onContextMenu={displayMenu}>
             <ColorTopBar color={uvaNode.content.color} />
@@ -115,26 +85,17 @@ export const NoteElementViewInDragging = memo((props: VinesNodeViewProps) => {
     /**
      * 编辑器初始化
      */
+    /**
+     * 编辑器初始化
+     */
     useEffect(() => {
-        const place = editorDomRef.current;
-        if (place) {
-            let editor = editorCache.get(vinesNode.id);
-            let content: Content;
-            if (editor) {
-                content = editor.getJSON() as JSONContent;
-            } else {
-                const textContent = vinesNode?.content.textContent || undefined;
-                content = isString(textContent) ? JSON.parse(textContent) : textContent;
-            }
+        const editor = new Crepe({ root: editorDomRef.current, defaultValue: vinesNode.content.textContent });
 
-            const exts = getExtensions();
-            editor = new Editor({
-                element: place,
-                extensions: exts,
-                content,
-                editable: false,
-            });
-        }
+        editor.create();
+
+        return () => {
+            editor.destroy();
+        };
     }, []);
 
     const className = cs('relative bg-white min-h-12');

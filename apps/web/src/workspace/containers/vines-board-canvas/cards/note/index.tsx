@@ -1,4 +1,6 @@
-import '@/common/components/editor/editor.scss';
+import '@milkdown/crepe/theme/common/style.css';
+import '@milkdown/crepe/theme/frame.css';
+
 import { NoteIconOutline } from '@/common/components/icons/node/note-icon';
 import type { INoteNodeContent } from '../../../../vines-node/vines-node-content';
 import type { VinesNodeDescriptor } from '../../../../vines-node/vines-node-descriptor.types';

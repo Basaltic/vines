@@ -62,6 +62,7 @@ catalog:
     reflect-metadata: 0.2.2
     "@abraham/reflection": 0.13.0
 
+    "@milkdown/crepe": "7.15.3"
     "@tiptap/core": "3.0.7"
     "@tiptap/extension-document": "3.0.7"
     "@tiptap/extension-history": "3.0.7"

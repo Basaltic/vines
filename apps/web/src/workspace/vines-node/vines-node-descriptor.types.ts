@@ -110,7 +110,7 @@ export type VinesNodeViewProps = {
     /**
      * 视图展示在何处
      */
-    where: TWhere;
+    where?: TWhere;
     /**
      * 是否被选中
      */

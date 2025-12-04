@@ -30,7 +30,7 @@ export class VinesNodeDescriptorRegistry {
     }
 
     getIcon(type: string) {
-        return this.registry.get(type)?.icon;
+        return this.registry.get(type)?.view.icon;
     }
 
     private preRegister() {

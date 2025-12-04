@@ -24,7 +24,7 @@ export function LandingPage() {
             console.log('error', e);
         }
 
-        navigate({ from: '/', to: '/first-use-setup' });
+        navigate({ from: '/', to: '/setup' });
     }, {});
 
     return null;

@@ -62,32 +62,36 @@ export type VinesNodeDescriptor<C extends IVinesNodeContent = IVinesNodeContent>
     type: string;
 
     /**
+     * 元素的名字
+     */
+    name: string;
+
+    /**
      * 默认内容
      */
     defaultContent: C;
     /**
-     * 元素的名字
-     */
-    name: string;
-    /**
-     * 图标
-     */
-    icon: React.FC<React.SVGAttributes<SVGElement>>;
-    /**
      * 元素的展示视图
      */
     view: {
+        /**
+         * 默认视图，在画板中展示
+         */
         default: React.FC<VinesNodeViewProps>;
+        /**
+         * 拖拽的视图
+         */
         dragging: React.FC<VinesNodeViewProps>;
+
+        /**
+         * 菜单中
+         */
+        menu?: React.FC;
+        /**
+         * 图标
+         */
+        icon: React.FC<React.SVGAttributes<SVGElement>>;
     };
-    /**
-     * 创建菜单视图
-     */
-    menuView: React.FC;
-    /**
-     * 自定义的右击菜单视图
-     */
-    contextMenuView?: React.FC;
 };
 
 /**

@@ -53,6 +53,8 @@ export class VinesBoardOpHistory implements IOpHistory {
 
         const mutation = this.mutation;
 
+        console.log('endChange mutation ==> ', mutation.length, mutation[0].redoOp);
+
         if (mutation.length > 0) {
             this.undoStack.push(mutation);
             this.mutationQueue.push(mutation);

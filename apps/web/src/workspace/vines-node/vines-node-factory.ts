@@ -1,4 +1,4 @@
-import { IVinesNodeContent } from './vines-node-content';
+import { IVinesNodeContent } from './vines-node-content.types';
 import { VinesNodeDescriptor } from './vines-node-descriptor.types';
 
 /**

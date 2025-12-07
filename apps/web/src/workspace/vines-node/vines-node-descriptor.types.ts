@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { IVinesNodeContent } from './vines-node-content';
+import type { IVinesNodeContent } from './vines-node-content.types';
 
 /**
  * 从画板中拖拽元素的参数

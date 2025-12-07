@@ -1,5 +1,5 @@
 import { Injectable } from '@vines/core';
-import { noteCardDescriptor } from '../containers/vines-board-canvas/cards/note';
+import { headingNodeDescriptor } from '../containers/vines-board-canvas/vines-node-views/heading';
 import { VinesNodeDescriptor } from './vines-node-descriptor.types';
 
 /**
@@ -34,6 +34,7 @@ export class VinesNodeDescriptorRegistry {
     }
 
     private preRegister() {
-        this.register(noteCardDescriptor);
+        // this.register(noteCardDescriptor);
+        this.register(headingNodeDescriptor);
     }
 }

@@ -5,6 +5,9 @@ import { IOp } from '../../backend/vines-node-graph/operation/vines-graph-operat
 import { EventEmitter } from '../../common/event-emitter';
 import { VINES_BOARD_OPERATION_MUTATION_ADDED, VinesBoardOpHistory } from './vines-board-operation-history';
 
+/**
+ * 用于同步节点画布的操作到后端
+ */
 @Injectable()
 export class VinesBoardOperationSyncer {
     private syncing = false;
@@ -33,14 +36,14 @@ export class VinesBoardOperationSyncer {
             return;
         }
 
-        console.log('syncing ==> ', this.operationHistory.mutationQueue);
-
         try {
             this.syncing = true;
             const qlen = this.operationHistory.mutationQueue.length;
             if (qlen <= 0) {
                 return;
             }
+
+            console.log('syncing ==> ', this.operationHistory.mutationQueue);
 
             const ops: IOp[] = [];
             for (let i = 0; i < qlen; i += 1) {

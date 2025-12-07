@@ -1,8 +1,9 @@
 import { createModule } from '@vines/core';
 import { backendModule } from '@/backend/backend.module';
-import { boardModule } from '@/workspace/vines-board.module';
+import { EventEmitter } from '@/common/event-emitter';
+import { WorkspaceModule } from '@/workspace/workspace.module';
 
 export const appModule = createModule({
-    imports: [backendModule, boardModule],
-    providers: [],
+    imports: [backendModule, WorkspaceModule],
+    providers: [EventEmitter],
 });

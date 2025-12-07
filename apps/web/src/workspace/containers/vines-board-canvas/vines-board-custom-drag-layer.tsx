@@ -1,7 +1,7 @@
 import { useDragLayer, type XYCoord } from 'react-dnd';
 import { useSelectedNodeIds } from '@/workspace/vines-node/vines-node-graph.hooks';
 import type { VinesNodeDragItemFromBoard } from '../../vines-node/vines-node-descriptor.types';
-import { ElementItemInDragging, SibilingDraggingItem } from './elements/element-item-in-dragging';
+import { ElementItemInDragging, SibilingDraggingItem } from './vines-node-views/element-item-in-dragging';
 
 /**
  * 元素拖拽的的样式

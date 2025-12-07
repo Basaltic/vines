@@ -8,9 +8,16 @@ import { internalIpV4 } from 'internal-ip';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const mobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM || '');
+const isProd = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
     plugins: [pluginReact(), pluginSass()],
+    output: {
+        sourceMap: {
+            js: isProd ? 'source-map' : 'cheap-module-source-map',
+            css: isProd,
+        },
+    },
     html: {
         template: './index.html',
     },
@@ -19,11 +26,9 @@ export default defineConfig({
             version: 'legacy',
         },
     },
-
     server: {
         port: 1420,
         strictPort: true,
-        // host: mobile ? '0.0.0.0' : false,
     },
     dev: {
         hmr: true,
@@ -42,4 +47,5 @@ export default defineConfig({
         },
     },
     tools: {},
+    performance: {},
 });

@@ -1,6 +1,6 @@
 import { useInject } from '@vines/core';
 import { VinesNode } from './vines-node';
-import { IVinesNodeContent } from './vines-node-content';
+import { IVinesNodeContent } from './vines-node-content.types';
 import { VinesNodeGraph } from './vines-node-graph';
 
 export const useVinesNodeGraph = () => {

@@ -4,15 +4,13 @@ import { VinesNodeDescriptorRegistry } from '@/workspace/vines-node/vines-node-d
 /**
  * 侧边工具栏
  */
-export function VinesElementMenu() {
+export function CanvasSideMenu() {
     const elementRegistry = useInject(VinesNodeDescriptorRegistry);
     const elements = elementRegistry.getElementList();
 
     return (
-        <div className="absolute top-1/2 left-5 h-4 flex gap-2 z-40">
-            {elements.map((e) => (
-                <e.menuView key={e.type} />
-            ))}
+        <div className="absolute top-10 left-2 w-10 h-full flex items-center z-50">
+            <div className="bg-white shadow-md rounded-md p-1">{elements.map((e) => e.view.menu && <e.view.menu key={e.type} />)}</div>
         </div>
     );
 }

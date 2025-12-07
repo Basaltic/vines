@@ -1,6 +1,6 @@
 import { BaseEntity } from '@/backend/common/base.do';
 import { VinesNodeBaseLocationEntity } from '@/backend/vines-node-graph/vines-node.do';
-import type { IVinesNodeContent } from './vines-node-content';
+import type { IVinesNodeContent } from './vines-node-content.types';
 
 /**
  * 节点

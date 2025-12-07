@@ -8,7 +8,7 @@ import { VinesBoardOpHistory } from './vines-board-operation-history';
 import { VinesBoardOperationSyncer } from './vines-board-operation-syncer';
 import { VinesNode } from './vines-node';
 import type { IVinesNode } from './vines-node.interface';
-import type { IVinesNodeContent } from './vines-node-content';
+import type { IVinesNodeContent } from './vines-node-content.types';
 import { VinesNodeDescriptorRegistry } from './vines-node-descriptor-registry';
 import { VinesNodeGraph } from './vines-node-graph';
 import { VinesNodeGraphAtomicOperations } from './vines-node-graph-atomic-operations';

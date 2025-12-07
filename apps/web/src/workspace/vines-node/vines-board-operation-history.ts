@@ -1,6 +1,6 @@
 import { Injectable } from '@vines/core';
 import type { IMutation, IOpGroup } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
-import { EventEmitter } from '../common/event-emitter';
+import { EventEmitter } from '../../common/event-emitter';
 
 export const VINES_BOARD_OPERATION_MUTATION_ADDED = 'vines-board-mutation-added';
 
@@ -53,6 +53,8 @@ export class VinesBoardOpHistory implements IOpHistory {
 
         const mutation = this.mutation;
 
+        console.log('endChange mutation ==> ', mutation.length, mutation[0].redoOp);
+
         if (mutation.length > 0) {
             this.undoStack.push(mutation);
             this.mutationQueue.push(mutation);
@@ -97,6 +99,7 @@ export class VinesBoardOpHistory implements IOpHistory {
             cb && cb();
         } catch (e) {
             // empty
+            console.error('Transaction failed', e);
         } finally {
             this.endChange();
         }

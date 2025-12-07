@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/a11y/noSvgWithoutTitle: <explanation> */
 import React, { useEffect, useRef } from 'react';
 import { DragSourceMonitor, useDrag, XYCoord } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';

@@ -11,7 +11,7 @@ import { useVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
 export const ElementItemInDragging = memo((props: { type: string; draggingNodeId: string; isSelected: boolean; isNew?: boolean }) => {
     const { type, draggingNodeId, isSelected, isNew } = props;
     const elementRegistry = useInject(VinesNodeDescriptorRegistry);
-    const ElementView = elementRegistry.getElementView(type);
+    const ElementView = elementRegistry.getElementView(type)?.dragging;
 
     if (!ElementView) {
         return null;
@@ -44,7 +44,7 @@ export const SibilingDraggingItem = memo((props: { id: string; deltaOffset: XYCo
 
     const uvaNode = useVinesNode(id);
     const elementRegistry = useInject(VinesNodeDescriptorRegistry);
-    const ElementView = elementRegistry.getElementView(uvaNode.type);
+    const ElementView = elementRegistry.getElementView(uvaNode.type)?.dragging;
     const elementDomCache = useInject(ElementDomCache);
 
     const dom = elementDomCache.get(id);

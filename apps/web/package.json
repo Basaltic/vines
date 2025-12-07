@@ -1,6 +1,6 @@
 {
     "name": "@vines/web",
-    "version": "0.3.4",
+    "version": "0.0.2",
     "private": true,
     "type": "module",
     "scripts": {
@@ -20,30 +20,20 @@
 
         "@tanstack/react-router": "catalog:",
 
+        "@heroicons/react": "catalog:",
+        "@milkdown/crepe": "catalog:",
+
         "i18next": "catalog:",
         "i18next-browser-languagedetector": "catalog:",
         "react-i18next": "catalog:",
-
-        "@heroicons/react": "catalog:",
-
-        "@tiptap/core": "catalog:",
-        "@tiptap/extension-document": "catalog:",
-        "@tiptap/extension-history": "catalog:",
-        "@tiptap/extension-paragraph": "catalog:",
-        "@tiptap/extension-placeholder": "catalog:",
-        "@tiptap/extension-task-item": "catalog:",
-        "@tiptap/extension-task-list": "catalog:",
-        "@tiptap/extension-text": "catalog:",
-        "@tiptap/starter-kit": "catalog:",
 
         "ahooks": "catalog:",
         "axios": "catalog:",
         "classnames": "catalog:",
         "clipboard": "catalog:",
         "colorthief": "catalog:",
-        "dexie": "4.0.11",
+        "dexie": "catalog:",
         "dayjs": "catalog:",
-        "immer": "catalog:",
         "js-cookie": "catalog:",
         "katex": "catalog:",
         "lodash-es": "catalog:",

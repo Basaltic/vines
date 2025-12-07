@@ -1,5 +1,5 @@
 import { Injectable } from '@vines/core';
-import type { Cache } from './cache.interface';
+import type { Cache } from '../../../common/cache.interface';
 export interface IElementDomCache extends Cache<string, HTMLDivElement> {}
 
 /**

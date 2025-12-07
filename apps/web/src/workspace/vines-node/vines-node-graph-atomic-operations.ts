@@ -6,7 +6,7 @@ import { OpLocation } from '../../backend/vines-node-graph/operation/vines-graph
 import { VinesBoardOpHistory } from './vines-board-operation-history';
 import { VinesNode } from './vines-node';
 import type { IVinesNode } from './vines-node.interface';
-import type { IVinesNodeContent } from './vines-node-content';
+import type { IVinesNodeContent } from './vines-node-content.types';
 import { VinesNodeGraph } from './vines-node-graph';
 
 /**
@@ -119,6 +119,8 @@ export class VinesNodeGraphAtomicOperations {
 
     update<T extends IVinesNodeContent>(payload: { nodeId: string | null; content: Partial<T> | any }) {
         const { nodeId, content } = payload;
+
+        console.log('update node content', { nodeId, content });
 
         if (!nodeId) return;
 

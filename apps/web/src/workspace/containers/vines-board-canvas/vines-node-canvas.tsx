@@ -1,16 +1,16 @@
 import { useRef } from 'react';
 import { useCurrentDisplayingVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
 import bgSvg from './assets/bg-point.svg';
-import { ElementItemInBoard } from './elements/element-item-in-board';
 import useBoardCanvasScroll from './use-board-canvas-scroll';
 import useVinesBoardHotKeys from './use-board-hotkeys';
 import useElementDropToBoard from './use-element-drop-to-board';
 import { VinesNodeCanvasMouseSelection } from './vines-node-canvas-mouse-selection';
+import { ElementItemInBoard } from './vines-node-views/element-item-in-board';
 
 /**
  * 画布
  */
-export function VinesNodeCanvas() {
+export function CardCanvas() {
     const scrollContentRef = useRef<HTMLDivElement>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -19,8 +19,6 @@ export function VinesNodeCanvas() {
 
     const childNodeIds = displayBoardNode?.state$.useSelect((n) => n.children);
 
-    console.log('displaying board node ==>', displayBoardNode, childNodeIds);
-
     useElementDropToBoard(scrollContainerRef, scrollContentRef, displayBoardNode?.id);
 
     useVinesBoardHotKeys();
@@ -28,7 +26,7 @@ export function VinesNodeCanvas() {
     return (
         <>
             <div
-                id="uva-board-canvas"
+                id="vines-board-canvas"
                 className="relative w-full h-full bg-slate-200 overflow-auto"
                 ref={scrollContainerRef}
                 style={{ backgroundImage: `url(${bgSvg})` }}
@@ -42,7 +40,7 @@ export function VinesNodeCanvas() {
                     }}
                 >
                     {childNodeIds?.map((id) => (
-                        <ElementItemInBoard key={id} isResizable nodeId={id} />
+                        <ElementItemInBoard key={id} isResizable nodeId={id} where="board" />
                     ))}
                 </div>
             </div>
@@ -51,12 +49,3 @@ export function VinesNodeCanvas() {
         </>
     );
 }
-
-/**
- * 全局取消使用tab在元素间切换
- */
-document.onkeydown = (t) => {
-    if (t.key === 'Tab') {
-        return false;
-    }
-};

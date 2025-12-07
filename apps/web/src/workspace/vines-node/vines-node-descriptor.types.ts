@@ -1,6 +1,5 @@
 import type React from 'react';
-import type { VinesNodeType } from './vines-node.interface';
-import type { IVinesNodeContent } from './vines-node-content';
+import type { IVinesNodeContent } from './vines-node-content.types';
 
 /**
  * 从画板中拖拽元素的参数
@@ -15,7 +14,7 @@ export type VinesNodeDragItemFromBoard = {
      */
     isSelected: boolean;
     isNew?: boolean;
-    type: VinesNodeType;
+    type: string;
 };
 
 /**
@@ -39,7 +38,7 @@ export type VinesNodeDragItemFromMenu = {
     /**
      * 需要新建的节点的类型
      */
-    type: VinesNodeType;
+    type: string;
     isNew?: boolean;
 };
 
@@ -60,32 +59,39 @@ export type VinesNodeDescriptor<C extends IVinesNodeContent = IVinesNodeContent>
     /**
      * 元素的类型
      */
-    type: VinesNodeType;
+    type: string;
+
+    /**
+     * 元素的名字
+     */
+    name: string;
 
     /**
      * 默认内容
      */
     defaultContent: C;
     /**
-     * 元素的名字
-     */
-    name: string;
-    /**
-     * 图标
-     */
-    icon: React.FC<React.SVGAttributes<SVGElement>>;
-    /**
      * 元素的展示视图
      */
-    view: React.FC<VinesNodeViewProps>;
-    /**
-     * 创建菜单视图
-     */
-    menuView: React.FC;
-    /**
-     * 自定义的右击菜单视图
-     */
-    contextMenuView?: React.FC;
+    view: {
+        /**
+         * 默认视图，在画板中展示
+         */
+        default: React.FC<VinesNodeViewProps>;
+        /**
+         * 拖拽的视图
+         */
+        dragging: React.FC<VinesNodeViewProps>;
+
+        /**
+         * 菜单中
+         */
+        menu?: React.FC;
+        /**
+         * 图标
+         */
+        icon: React.FC<React.SVGAttributes<SVGElement>>;
+    };
 };
 
 /**
@@ -104,11 +110,11 @@ export type VinesNodeViewProps = {
     /**
      * 类型
      */
-    type?: VinesNodeType;
+    type?: string;
     /**
      * 视图展示在何处
      */
-    where: TWhere;
+    where?: TWhere;
     /**
      * 是否被选中
      */

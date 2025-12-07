@@ -2,9 +2,12 @@ import { Inject, Injectable } from '@vines/core';
 import { AppUseCasesInWeb } from '@/backend/usecase.impl.web';
 import { AppUseCaseToken } from '@/backend/usecase.interface';
 import { IOp } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
-import { EventEmitter } from '../common/event-emitter';
+import { EventEmitter } from '../../common/event-emitter';
 import { VINES_BOARD_OPERATION_MUTATION_ADDED, VinesBoardOpHistory } from './vines-board-operation-history';
 
+/**
+ * 用于同步节点画布的操作到后端
+ */
 @Injectable()
 export class VinesBoardOperationSyncer {
     private syncing = false;
@@ -29,8 +32,6 @@ export class VinesBoardOperationSyncer {
      * 同步数据
      */
     private async syncOperations() {
-        console.log('syncing ==> ', this.operationHistory.mutationQueue);
-
         if (this.syncing) {
             return;
         }
@@ -41,6 +42,8 @@ export class VinesBoardOperationSyncer {
             if (qlen <= 0) {
                 return;
             }
+
+            console.log('syncing ==> ', this.operationHistory.mutationQueue);
 
             const ops: IOp[] = [];
             for (let i = 0; i < qlen; i += 1) {

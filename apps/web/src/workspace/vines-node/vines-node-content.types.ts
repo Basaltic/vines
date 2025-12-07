@@ -37,7 +37,6 @@ export interface INoteNodeContent extends IVinesNodeContent {
     textContent: string;
 }
 
-
 /**
  * 图片节点内容
  */

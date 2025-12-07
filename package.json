@@ -26,5 +26,6 @@
     "publishConfig": {
         "access": "public",
         "registry": "https://registry.npmjs.org/"
-    }
+    },
+    "packageManager": "pnpm@10.9.0"
 }

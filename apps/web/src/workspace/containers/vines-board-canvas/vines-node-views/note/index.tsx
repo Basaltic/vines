@@ -2,9 +2,9 @@ import '@milkdown/crepe/theme/common/style.css';
 import '@milkdown/crepe/theme/frame.css';
 
 import { NoteIconOutline } from '@/common/components/icons/node/note-icon';
-import { createVinesNodeDescriptor } from '@/workspace/vines-node/vines-node-factory';
-import type { INoteNodeContent } from '../../../../vines-node/vines-node-content.types';
-import type { VinesNodeDescriptor } from '../../../../vines-node/vines-node-descriptor.types';
+import { createVinesNodeDescriptor } from '@/workspace/graph/vines-node-factory';
+import type { INoteNodeContent } from '../../../../graph/vines-node-content.types';
+import type { VinesNodeDescriptor } from '../../../../graph/vines-node-descriptor.types';
 import { DEFAULT_CARD_CONTENT } from './constants';
 import { NoteElementMenuView } from './note-element-menu-view';
 import { NoteElementViewInBoard, NoteElementViewInDragging } from './note-element-view';

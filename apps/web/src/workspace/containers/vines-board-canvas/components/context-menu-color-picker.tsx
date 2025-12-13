@@ -1,8 +1,8 @@
 import type React from 'react';
-import { useCommands } from '@/workspace/vines-node/use-commands';
-import { useVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
+import { useCommands } from '@/workspace/graph/use-commands';
+import { useVinesNode } from '@/workspace/graph/vines-node-graph.hooks';
 import { useMenuData } from '../../../../common/components/context-menu/hooks/use-menu-data';
-import type { IVinesNode } from '../../../vines-node/vines-node.interface';
+import type { IVinesNode } from '../../../graph/vines-node.interface';
 
 /**
  * Context Menu中使用的颜色选取器

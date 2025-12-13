@@ -1,5 +1,5 @@
 import { useInject } from '@vines/core';
-import { VinesNodeDescriptorRegistry } from '@/workspace/vines-node/vines-node-descriptor-registry';
+import { VinesNodeDescriptorRegistry } from '@/workspace/graph/vines-node-descriptor-registry';
 
 /**
  * 侧边工具栏

@@ -8,7 +8,7 @@ import { DRAWER_WIDTH } from '@/common/constants';
 import { VinesBoardCustomDragLayer } from './containers/vines-board-canvas/vines-board-custom-drag-layer';
 import { CardCanvas } from './containers/vines-board-canvas/vines-node-canvas';
 import { CanvasSideMenu } from './containers/vines-board-menu';
-import { useBoardOperationSyncer, useCommands } from './vines-node/use-commands';
+import { useBoardOperationSyncer, useCommands } from './graph/use-commands';
 
 export function WorkspacePage() {
     useBoardOperationSyncer();

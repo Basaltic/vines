@@ -2,7 +2,7 @@ import type React from 'react';
 import { useEffect } from 'react';
 import { useDrag } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
-import type { VinesNodeDragItemFromMenu } from '../../../vines-node/vines-node-descriptor.types';
+import type { VinesNodeDragItemFromMenu } from '../../../graph/vines-node-descriptor.types';
 
 /**
  * 从图标拖拽创建新的节点

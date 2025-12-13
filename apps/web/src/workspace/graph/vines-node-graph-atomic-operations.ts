@@ -1,7 +1,7 @@
 import { Injectable } from '@vines/core';
 import { produceWithPatches } from '@vines/store';
 import { cloneDeep } from 'lodash-es';
-import { OpFactory } from '../../backend/vines-node-graph/operation/vines-graph-operation.factory';
+import { VinesGraphOperationFactory } from '../../backend/vines-node-graph/operation/vines-graph-operation.factory';
 import { OpLocation } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
 import { VinesBoardOpHistory } from './vines-board-operation-history';
 import { VinesNode } from './vines-node';
@@ -60,8 +60,8 @@ export class VinesNodeGraphAtomicOperations {
         const vinesNode = VinesNode.create(node);
         this.vinesNodeGraph.setNode(vinesNode);
 
-        const redoOp = OpFactory.createInsertOp(node, to);
-        const undoOp = OpFactory.createDeleteOp(node.id);
+        const redoOp = VinesGraphOperationFactory.createInsertOp(node, to);
+        const undoOp = VinesGraphOperationFactory.createDeleteOp(node.id);
         this.history.push({ redoOp, undoOp });
     }
 
@@ -75,8 +75,8 @@ export class VinesNodeGraphAtomicOperations {
 
         const nodeStateValue = cloneDeep(node.state$.get());
 
-        const redoOp = OpFactory.createDeleteOp(nodeId);
-        const undoOp = OpFactory.createInsertOp(nodeStateValue, { above: node.above });
+        const redoOp = VinesGraphOperationFactory.createDeleteOp(nodeId);
+        const undoOp = VinesGraphOperationFactory.createInsertOp(nodeStateValue, { above: node.above });
         this.history.push({ redoOp, undoOp });
     }
 
@@ -111,8 +111,8 @@ export class VinesNodeGraphAtomicOperations {
             movingNode?.changeState({ x: to.x, y: to.y });
         }
 
-        const redoOp = OpFactory.createMoveOp(movingNodeId, to);
-        const undoOp = OpFactory.createMoveOp(movingNodeId, movingNodeOldLocation);
+        const redoOp = VinesGraphOperationFactory.createMoveOp(movingNodeId, to);
+        const undoOp = VinesGraphOperationFactory.createMoveOp(movingNodeId, movingNodeOldLocation);
 
         this.history.push({ redoOp, undoOp });
     }
@@ -133,8 +133,8 @@ export class VinesNodeGraphAtomicOperations {
 
         this.vinesNodeGraph.updateNodeContent(nodeId, patches);
 
-        const redoOp = OpFactory.createUpdateContentOp(nodeId, patches);
-        const undoOp = OpFactory.createUpdateContentOp(nodeId, inversePatches);
+        const redoOp = VinesGraphOperationFactory.createUpdateContentOp(nodeId, patches);
+        const undoOp = VinesGraphOperationFactory.createUpdateContentOp(nodeId, inversePatches);
         this.history.push({ redoOp, undoOp });
     }
 }

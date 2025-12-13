@@ -1,7 +1,7 @@
 import { useMount } from 'ahooks';
 import { OverlayScrollbars } from 'overlayscrollbars';
 import { useEffect, useState } from 'react';
-import { useMaxXY } from '../../vines-node/vines-node-graph.hooks';
+import { useMaxXY } from '../../graph/vines-node-graph.hooks';
 
 const THREADHOLD = 300;
 const INCREASE_STEP = 500;

@@ -1,5 +1,5 @@
 import { useHotkeys } from 'react-hotkeys-hook';
-import { useCommands } from '@/workspace/vines-node/use-commands';
+import { useCommands } from '@/workspace/graph/use-commands';
 
 /**
  * 快捷键

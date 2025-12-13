@@ -1,9 +1,9 @@
 import { memo, useRef } from 'react';
 import { useDragSelectMouseConflictHandler } from '@/common/components/drag-to-select/hooks/use-drag-select-mouse-conflict-handler';
 import { NoteIconOutline } from '@/common/components/icons/node/note-icon';
-import { useCommands } from '@/workspace/vines-node/use-commands';
-import { VinesNodeViewProps } from '@/workspace/vines-node/vines-node-descriptor.types';
-import { useVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
+import { useCommands } from '@/workspace/graph/use-commands';
+import { VinesNodeViewProps } from '@/workspace/graph/vines-node-descriptor.types';
+import { useVinesNode } from '@/workspace/graph/vines-node-graph.hooks';
 import { EditableTitle } from '../../components/editable-title';
 import { ElementMenuItem } from '../../components/element-menu-item';
 import { useDragCreation } from '../../hooks/use-drag-creation';

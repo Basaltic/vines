@@ -1,10 +1,10 @@
 import cs from 'classnames';
 import type React from 'react';
 import { memo, useRef } from 'react';
-import { useVinesNodeDescriptor } from '@/workspace/vines-node/vines-node-descriptor-registry.hooks';
-import { useVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
+import { useVinesNodeDescriptor } from '@/workspace/graph/vines-node-descriptor-registry.hooks';
+import { useVinesNode } from '@/workspace/graph/vines-node-graph.hooks';
 import { useDragSelectMouseConflictHandler } from '../../../../common/components/drag-to-select/hooks/use-drag-select-mouse-conflict-handler';
-import type { TWhere } from '../../../vines-node/vines-node-descriptor.types';
+import type { TWhere } from '../../../graph/vines-node-descriptor.types';
 import { useElementDomCollect } from '../hooks/use-element-dom-collect';
 import { useElementDrag } from '../hooks/use-element-drag';
 import { useVinesNodeSelection } from '../use-node-selection';

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useCommands } from '@/workspace/vines-node/use-commands';
+import { useCommands } from '@/workspace/graph/use-commands';
 import { useDragSelectMouseConflictHandler } from '../../../../../common/components/drag-to-select/hooks/use-drag-select-mouse-conflict-handler';
 import { NoteIconOutline } from '../../../../../common/components/icons/node/note-icon';
 import { ElementMenuItem } from '../../components/element-menu-item';

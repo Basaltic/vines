@@ -1,12 +1,12 @@
 import clamp from 'lodash-es/clamp';
 import { useDrop, type XYCoord } from 'react-dnd';
-import { useCommands } from '@/workspace/vines-node/use-commands';
-import { useDragableAccepts } from '@/workspace/vines-node/vines-node-descriptor-registry.hooks';
+import { useCommands } from '@/workspace/graph/use-commands';
+import { useDragableAccepts } from '@/workspace/graph/vines-node-descriptor-registry.hooks';
 import type {
     VinesNodeDragItemFromBoard,
     VinesNodeDragItemFromColumn,
     VinesNodeDragItemFromMenu,
-} from '../../vines-node/vines-node-descriptor.types';
+} from '../../graph/vines-node-descriptor.types';
 
 /**
  * 元素拖拽到画板

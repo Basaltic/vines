@@ -5,10 +5,10 @@ import { debounce, isString } from 'lodash-es';
 import type React from 'react';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { EditorCache } from '@/workspace/common/cache/editor-cache';
-import { useCommands } from '@/workspace/vines-node/use-commands';
-import { useVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
-import type { INoteNodeContent } from '../../../../vines-node/vines-node-content.types';
-import type { VinesNodeViewProps } from '../../../../vines-node/vines-node-descriptor.types';
+import { useCommands } from '@/workspace/graph/use-commands';
+import { useVinesNode } from '@/workspace/graph/vines-node-graph.hooks';
+import type { INoteNodeContent } from '../../../../graph/vines-node-content.types';
+import type { VinesNodeViewProps } from '../../../../graph/vines-node-descriptor.types';
 import { ColorTopBar } from '../../components/color-top-bar';
 
 /**

@@ -1,6 +1,6 @@
 import type { Patch } from '@vines/store';
 import { nanoid } from 'nanoid';
-import type { IVinesNode } from '../../../workspace/vines-node/vines-node.interface';
+import type { IVinesNode } from '../../../workspace/graph/vines-node.interface';
 import {
     type IDeleteOp,
     type IInsertOp,
@@ -8,30 +8,30 @@ import {
     type INavigateOp,
     type IUpdateContentOp,
     OpLocation,
-    OpType,
+    VinesGraphOperationType,
 } from './vines-graph-operation.interface';
 
 /**
  * 操作对象 工厂类
  */
-export const OpFactory = {
+export const VinesGraphOperationFactory = {
     createInsertOp(node: IVinesNode, to: OpLocation): IInsertOp {
-        return { id: nanoid(), type: OpType.Insert, payload: { node, to } };
+        return { id: nanoid(), type: VinesGraphOperationType.Insert, payload: { node, to } };
     },
 
     createDeleteOp(nodeId: string): IDeleteOp {
-        return { id: nanoid(), type: OpType.Delete, payload: { nodeId } };
+        return { id: nanoid(), type: VinesGraphOperationType.Delete, payload: { nodeId } };
     },
 
     createUpdateContentOp(nodeId: string, changes: Patch[]): IUpdateContentOp {
-        return { id: nanoid(), type: OpType.UpdateContent, payload: { nodeId, changes } };
+        return { id: nanoid(), type: VinesGraphOperationType.UpdateContent, payload: { nodeId, changes } };
     },
 
     createNavigateOp(nodeId: string): INavigateOp {
-        return { id: nanoid(), type: OpType.Navigate, payload: { nodeId } };
+        return { id: nanoid(), type: VinesGraphOperationType.Navigate, payload: { nodeId } };
     },
 
     createMoveOp(nodeId: string, to: OpLocation): IMoveOp {
-        return { id: nanoid(), type: OpType.Move, payload: { nodeId, to } };
+        return { id: nanoid(), type: VinesGraphOperationType.Move, payload: { nodeId, to } };
     },
 };

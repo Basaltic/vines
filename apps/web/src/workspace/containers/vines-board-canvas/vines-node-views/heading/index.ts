@@ -1,5 +1,5 @@
 import { NoteIconOutline } from '@/common/components/icons/node/note-icon';
-import { createVinesNodeDescriptor } from '@/workspace/vines-node/vines-node-factory';
+import { createVinesNodeDescriptor } from '@/workspace/graph/vines-node-factory';
 import { DEFAULT_HEADING_NODE_CONTENT, HEADING_NODE_NAME, HEADING_NODE_TYPE, IHeadingNodeContent } from './types';
 import { HeadingNodeViewInBoard, HeadingNodeViewInDragging, HeadingNodeViewInMenu } from './view';
 

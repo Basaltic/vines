@@ -1,8 +1,8 @@
 import { useInject } from '@vines/core';
 import { memo, useCallback } from 'react';
 import { ElementDomCache } from '@/workspace/common/cache/element-dom-cache';
-import { useCommands } from '@/workspace/vines-node/use-commands';
-import { useCurrentDisplayingVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
+import { useCommands } from '@/workspace/graph/use-commands';
+import { useCurrentDisplayingVinesNode } from '@/workspace/graph/vines-node-graph.hooks';
 import { type Box as DSBox, useSelectionContainer } from '../../../common/components/drag-to-select';
 
 export let isSquareDragging = false;

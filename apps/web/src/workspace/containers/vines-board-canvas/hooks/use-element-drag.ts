@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDrag } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
-import type { TWhere, VinesNodeDragItemFromBoard } from '../../../vines-node/vines-node-descriptor.types';
+import type { TWhere, VinesNodeDragItemFromBoard } from '../../../graph/vines-node-descriptor.types';
 
 let isSomeElementDragging = false;
 

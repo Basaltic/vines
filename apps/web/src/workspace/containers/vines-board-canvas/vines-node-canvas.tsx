@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useCurrentDisplayingVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
+import { useCurrentDisplayingVinesNode } from '@/workspace/graph/vines-node-graph.hooks';
 import bgSvg from './assets/bg-point.svg';
 import useBoardCanvasScroll from './use-board-canvas-scroll';
 import useVinesBoardHotKeys from './use-board-hotkeys';

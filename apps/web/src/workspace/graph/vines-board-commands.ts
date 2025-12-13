@@ -3,7 +3,7 @@ import { IdentifierService } from '@/backend/common/id.service';
 import type { IAppUseCases } from '@/backend/usecase.interface';
 import { AppUseCaseToken } from '@/backend/usecase.interface';
 import type { Box } from '@/common/components/drag-to-select';
-import { OpType } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
+import { VinesGraphOperationType } from '../../backend/vines-node-graph/operation/vines-graph-operation.interface';
 import { VinesBoardOpHistory } from './vines-board-operation-history';
 import { VinesBoardOperationSyncer } from './vines-board-operation-syncer';
 import { VinesNode } from './vines-node';
@@ -41,16 +41,16 @@ export class VinesBoardEditorCommands {
                     const op = opGroup.undoOp;
                     const payload = op.payload as any;
                     switch (op.type) {
-                        case OpType.Insert:
+                        case VinesGraphOperationType.Insert:
                             this.vinesNodeGraphAtomicOperations.insert(payload);
                             break;
-                        case OpType.Delete:
+                        case VinesGraphOperationType.Delete:
                             this.vinesNodeGraphAtomicOperations.delete(payload);
                             break;
-                        case OpType.UpdateContent:
+                        case VinesGraphOperationType.UpdateContent:
                             this.vinesNodeGraphAtomicOperations.update(payload);
                             break;
-                        case OpType.Move:
+                        case VinesGraphOperationType.Move:
                             this.vinesNodeGraphAtomicOperations.move(payload);
                             break;
                         default:
@@ -71,16 +71,16 @@ export class VinesBoardEditorCommands {
                     const op = opGroup.redoOp;
                     const payload = op.payload as any;
                     switch (op.type) {
-                        case OpType.Insert:
+                        case VinesGraphOperationType.Insert:
                             this.vinesNodeGraphAtomicOperations.insert(payload);
                             break;
-                        case OpType.Delete:
+                        case VinesGraphOperationType.Delete:
                             this.vinesNodeGraphAtomicOperations.delete(payload);
                             break;
-                        case OpType.UpdateContent:
+                        case VinesGraphOperationType.UpdateContent:
                             this.vinesNodeGraphAtomicOperations.update(payload);
                             break;
-                        case OpType.Move:
+                        case VinesGraphOperationType.Move:
                             this.vinesNodeGraphAtomicOperations.move(payload);
                             break;
                         default:

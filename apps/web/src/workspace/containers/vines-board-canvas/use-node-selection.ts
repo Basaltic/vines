@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { useCommands } from '@/workspace/vines-node/use-commands';
-import { useIsNodeSelected } from '@/workspace/vines-node/vines-node-graph.hooks';
+import { useCommands } from '@/workspace/graph/use-commands';
+import { useIsNodeSelected } from '@/workspace/graph/vines-node-graph.hooks';
 
 /**
  * 节点是否被选中

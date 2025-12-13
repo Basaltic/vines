@@ -1,4 +1,4 @@
-import { IVinesNodeContent } from '@/workspace/vines-node/vines-node-content.types';
+import { IVinesNodeContent } from '@/workspace/graph/vines-node-content.types';
 
 /**
  * 标题节点内容

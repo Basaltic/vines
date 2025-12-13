@@ -2,8 +2,8 @@ import { useInject } from '@vines/core';
 import { memo } from 'react';
 import type { XYCoord } from 'react-dnd';
 import { ElementDomCache } from '@/workspace/common/cache/element-dom-cache';
-import { VinesNodeDescriptorRegistry } from '@/workspace/vines-node/vines-node-descriptor-registry';
-import { useVinesNode } from '@/workspace/vines-node/vines-node-graph.hooks';
+import { VinesNodeDescriptorRegistry } from '@/workspace/graph/vines-node-descriptor-registry';
+import { useVinesNode } from '@/workspace/graph/vines-node-graph.hooks';
 
 /**
  * 画布元素（容器）组件

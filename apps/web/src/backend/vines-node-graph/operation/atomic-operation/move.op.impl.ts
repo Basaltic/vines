@@ -1,5 +1,6 @@
-import { VinesNodeGraphService } from '@/backend/vines-node-graph/vines-node-graph.service';
+import { pickBy } from 'lodash-es';
 import { IMoveOp } from '@/backend/vines-node-graph/operation/vines-graph-operation.interface';
+import { VinesNodeGraphService } from '@/backend/vines-node-graph/vines-node-graph.service';
 import { IOperation } from '../operation.interface';
 
 /**
@@ -21,7 +22,7 @@ export class MoveOperation implements IOperation {
 
         const toParentId = to.above as string;
 
-        const updateNode: any  = { x: to.x, y: to.y, above: toParentId }
+        const updateNode: any = pickBy({ x: to.x, y: to.y, above: toParentId });
 
         await this.vinesNodeGraphService.update(movinngNodeId, updateNode);
 

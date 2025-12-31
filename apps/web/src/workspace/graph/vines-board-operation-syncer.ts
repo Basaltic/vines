@@ -55,14 +55,14 @@ export class VinesBoardOperationSyncer {
 
             console.log('syncing ==> ', this.operationHistory.mutationQueue, ops);
 
-            // if (ops.length > 0) {
-            //     const res = await this.appUseCase.syncOperations({ ops });
-            //     // TODO: retry
-            //     if (res) {
-            //         return true;
-            //     }
-            //     return false;
-            // }
+            if (ops.length > 0) {
+                const res = await this.appUseCase.syncOperations({ ops });
+                // TODO: retry
+                if (res) {
+                    return true;
+                }
+                return false;
+            }
         } catch (e) {
             // empty
         } finally {

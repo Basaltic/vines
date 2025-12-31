@@ -43,8 +43,6 @@ export class VinesBoardOperationSyncer {
                 return;
             }
 
-            console.log('syncing ==> ', this.operationHistory.mutationQueue);
-
             const ops: IOp[] = [];
             for (let i = 0; i < qlen; i += 1) {
                 const mutation = this.operationHistory.mutationQueue.shift();
@@ -55,14 +53,16 @@ export class VinesBoardOperationSyncer {
                 }
             }
 
-            if (ops.length > 0) {
-                const res = await this.appUseCase.syncOperations({ ops });
-                // TODO: retry
-                if (res) {
-                    return true;
-                }
-                return false;
-            }
+            console.log('syncing ==> ', this.operationHistory.mutationQueue, ops);
+
+            // if (ops.length > 0) {
+            //     const res = await this.appUseCase.syncOperations({ ops });
+            //     // TODO: retry
+            //     if (res) {
+            //         return true;
+            //     }
+            //     return false;
+            // }
         } catch (e) {
             // empty
         } finally {

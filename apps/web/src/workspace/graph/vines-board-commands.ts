@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@vines/core';
+import { router } from '@/app/router/app-router';
 import { IdentifierService } from '@/backend/common/id.service';
 import type { IAppUseCases } from '@/backend/usecase.interface';
 import { AppUseCaseToken } from '@/backend/usecase.interface';
@@ -318,6 +319,10 @@ export class VinesBoardEditorCommands {
         console.log('start initializing ~~');
 
         const stateResp = await this.appUseCase.getWorkspace({ id: workspaceId });
+
+        if (!stateResp.data) {
+            router.navigate({ to: '/' });
+        }
 
         const displayingNodeId = stateResp.data?.displayingNodeId;
 

@@ -14,6 +14,11 @@ export type ClassProvider<T> = {
     scope?: Scope;
 };
 
+export type ValueProvider<T> = {
+    token: ServiceIdentifier<T>;
+    useValue: T;
+};
+
 export type Provider<T = any> = Newable<T> | ClassProvider<T>;
 
 export class Module extends ContainerModule {

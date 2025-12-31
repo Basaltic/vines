@@ -25,12 +25,15 @@ export class InsertOperation implements IOperation {
 
         const nodeId = node.id;
 
+        this.vinesNodeGraphService.getList()
+
         const nodeCreateInput = {
             id: nodeId,
             x: node.x,
             y: node.y,
             type: node.type,
             above: to.above,
+            order: ,
             content: JSON.stringify(node.content),
         };
 

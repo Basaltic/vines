@@ -1,6 +1,6 @@
 {
     "name": "@vines/web",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": true,
     "type": "module",
     "scripts": {
@@ -24,6 +24,7 @@
         "@milkdown/crepe": "catalog:",
 
         "i18next": "catalog:",
+        "i18next-http-backend": "catalog:",
         "i18next-browser-languagedetector": "catalog:",
         "react-i18next": "catalog:",
 

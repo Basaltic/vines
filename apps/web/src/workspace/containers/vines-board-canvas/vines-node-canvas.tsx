@@ -10,7 +10,7 @@ import { ElementItemInBoard } from './vines-node-views/element-item-in-board';
 /**
  * 画布
  */
-export function CardCanvas() {
+export function VinesNodeCanvas() {
     const scrollContentRef = useRef<HTMLDivElement>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 

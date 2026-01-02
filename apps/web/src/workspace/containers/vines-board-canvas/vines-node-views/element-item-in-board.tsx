@@ -8,6 +8,7 @@ import type { TWhere } from '../../../graph/vines-node-descriptor.types';
 import { useElementDomCollect } from '../hooks/use-element-dom-collect';
 import { useElementDrag } from '../hooks/use-element-drag';
 import { useVinesNodeSelection } from '../use-node-selection';
+import { ElementWidgets } from './element-widgets';
 
 /**
  * 画布元素（容器）组件
@@ -55,8 +56,9 @@ export const ElementItemInBoard = memo((props: { nodeId: string; isResizable: bo
         return null;
     }
 
-    const containerClassName = cs('absolute', isDragging ? 'opacity-0' : 'opacity-100', isNodeSelected ? 'z-40' : '');
+    const containerClassName = cs('absolute', isDragging ? 'opacity-0' : 'opacity-100');
     const draggableWrapperClassName = cs('relative bg-white', isNodeSelected ? 'ring-2 ring-slate-600 z-50' : 'ring-1 ring-slate-200');
+    const selectionContainerClassName = cs(isNodeSelected ? 'z-40' : '');
 
     return (
         <div
@@ -65,17 +67,20 @@ export const ElementItemInBoard = memo((props: { nodeId: string; isResizable: bo
             className={containerClassName}
             style={{ transform: `translate3d(${x}px, ${y}px, 0)` }}
             data-id={vinesNode.id}
-            onClick={clickToSelect}
         >
-            <div ref={draggableRef} className={draggableWrapperClassName}>
-                <VinesNodeView
-                    id={nodeId}
-                    type={vinesNode.type}
-                    isSelected={isNodeSelected}
-                    isResizable={isResizable}
-                    isDragging={isDragging}
-                />
+            <div className={selectionContainerClassName} onClick={clickToSelect}>
+                <div ref={draggableRef} className={draggableWrapperClassName}>
+                    <VinesNodeView
+                        id={nodeId}
+                        type={vinesNode.type}
+                        isSelected={isNodeSelected}
+                        isResizable={isResizable}
+                        isDragging={isDragging}
+                    />
+                </div>
             </div>
+
+            {isNodeSelected && <ElementWidgets nodeId={nodeId} />}
         </div>
     );
 });

@@ -6,7 +6,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { PageLoading } from '@/common/components/page-loading';
 import { DRAWER_WIDTH } from '@/common/constants';
 import { VinesBoardCustomDragLayer } from './containers/vines-board-canvas/vines-board-custom-drag-layer';
-import { CardCanvas } from './containers/vines-board-canvas/vines-node-canvas';
+import { VinesNodeCanvas } from './containers/vines-board-canvas/vines-node-canvas';
 import { CanvasSideMenu } from './containers/vines-board-menu';
 import { useBoardOperationSyncer, useCommands } from './graph/use-commands';
 
@@ -15,7 +15,7 @@ export function WorkspacePage() {
 
     const commands = useCommands();
 
-    const { workspaceId } = useParams({ from: '/workspace/$workspaceId/$cardId' });
+    const { workspaceId } = useParams({ from: '/workspace/$workspaceId' });
 
     const { loading } = useRequest(() => commands.initialize(workspaceId), {});
 
@@ -28,7 +28,7 @@ export function WorkspacePage() {
             <WorkspaceContainer>
                 <CanvasSideMenu />
 
-                <CardCanvas />
+                <VinesNodeCanvas />
             </WorkspaceContainer>
 
             <VinesBoardCustomDragLayer />

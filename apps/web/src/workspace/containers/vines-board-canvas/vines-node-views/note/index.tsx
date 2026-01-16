@@ -1,5 +1,4 @@
-import '@milkdown/crepe/theme/common/style.css';
-import '@milkdown/crepe/theme/frame.css';
+import '@milkdown/kit/prose/view/style/prosemirror.css';
 
 import { NoteIconOutline } from '@/common/components/icons/node/note-icon';
 import { createVinesNodeDescriptor } from '@/workspace/graph/vines-node-factory';

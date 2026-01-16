@@ -1,7 +1,15 @@
-import { Crepe } from '@milkdown/crepe';
+import { Editor, rootCtx } from '@milkdown/kit/core';
+import { listener, listenerCtx } from '@milkdown/kit/plugin/listener';
+
+import { commonmark } from '@milkdown/kit/preset/commonmark';
+import { nord } from '@milkdown/theme-nord';
+
+import '@milkdown/theme-nord/style.css';
+
+import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react';
 import { useInject } from '@vines/core';
 import cs from 'classnames';
-import { debounce, isString } from 'lodash-es';
+import { debounce } from 'lodash-es';
 import type React from 'react';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { EditorCache } from '@/workspace/common/cache/editor-cache';
@@ -15,42 +23,45 @@ import { ColorTopBar } from '../../components/color-top-bar';
  * 笔记节点
  */
 export const NoteElementViewInBoard = memo((props: VinesNodeViewProps) => {
-    const { id, isSelected, isDragging } = props;
+    return (
+        <MilkdownProvider>
+            <NoteElementViewInBoardContent {...props} />
+        </MilkdownProvider>
+    );
+});
 
-    const editorDomRef = useRef(null);
-    const eidtorRef = useRef<Crepe | null>(null);
+const NoteElementViewInBoardContent = memo((props: VinesNodeViewProps) => {
+    const { id, isSelected, isDragging } = props;
 
     const commands = useCommands();
     const uvaNode = useVinesNode<INoteNodeContent>(id);
-
-    const editorCache = useInject(EditorCache);
 
     /**
      * 积累了一定的内容更新后再触发更新命令
      */
     const debouncedContentUpdate = useCallback(
-        debounce((editor) => {
-            if (!editor) return;
-            console.log('debouncedContentUpdate', { id, content: editor.getJSON() });
-            commands.updateNodeContent({ nodeId: uvaNode.id, content: { textContent: editor.getJSON() } });
+        debounce((content: string) => {
+            console.log('debouncedContentUpdate', { id, content });
+            commands.updateNodeContent({ nodeId: uvaNode.id, content: { textContent: content } });
         }, 500),
         [],
     );
 
-    /**
-     * 编辑器初始化
-     */
-    useEffect(() => {
-        const editor = new Crepe({ root: editorDomRef.current, defaultValue: uvaNode.content.textContent });
+    useEditor((root) =>
+        Editor.make()
+            .config(nord)
+            .config((ctx) => {
+                ctx.set(rootCtx, root);
 
-        editor.create();
-
-        eidtorRef.current = editor;
-
-        return () => {
-            editor.destroy();
-        };
-    }, []);
+                // Add markdown listener for auto-save
+                ctx.get(listenerCtx).markdownUpdated((ctx, markdown) => {
+                    // Save content to your backend or storage
+                    debouncedContentUpdate(markdown);
+                });
+            })
+            .use(commonmark)
+            .use(listener),
+    );
 
     /**
      * 控制菜单的展现与否
@@ -66,7 +77,8 @@ export const NoteElementViewInBoard = memo((props: VinesNodeViewProps) => {
     return (
         <div className={className} style={{ width: 300 }} onContextMenu={displayMenu}>
             <ColorTopBar color={uvaNode.content.color} />
-            <article className={editorClassName} ref={editorDomRef} />
+            {/* <article id={articleId} className={editorClassName} ref={editorDomRef} /> */}
+            <Milkdown />
         </div>
     );
 });
@@ -89,13 +101,11 @@ export const NoteElementViewInDragging = memo((props: VinesNodeViewProps) => {
      * 编辑器初始化
      */
     useEffect(() => {
-        const editor = new Crepe({ root: editorDomRef.current, defaultValue: vinesNode.content.textContent });
-
-        editor.create();
-
-        return () => {
-            editor.destroy();
-        };
+        // const editor = new Crepe({ root: editorDomRef.current, defaultValue: vinesNode.content.textContent });
+        // editor.create();
+        // return () => {
+        //     editor.destroy();
+        // };
     }, []);
 
     const className = cs('relative bg-white min-h-12');

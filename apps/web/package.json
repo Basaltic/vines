@@ -22,11 +22,17 @@
 
         "@heroicons/react": "catalog:",
         "@milkdown/crepe": "catalog:",
+        "@milkdown/kit": "catalog:",
+        "@milkdown/react": "catalog:",
+        "@milkdown/theme-nord": "catalog:",
 
         "i18next": "catalog:",
         "i18next-http-backend": "catalog:",
         "i18next-browser-languagedetector": "catalog:",
         "react-i18next": "catalog:",
+
+        "@tiptap/core": "catalog:",
+        "@tiptap/extensions": "catalog:",
 
         "ahooks": "catalog:",
         "axios": "catalog:",
